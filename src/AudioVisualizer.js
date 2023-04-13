@@ -2,7 +2,7 @@ import React from 'react';
 import { Wave } from '@foobar404/wave'
 import {useState, useEffect} from 'react'
 import ReactAudioPlayer from 'react-audio-player';
-import meditation from './meditations/guided meditation.mp3'
+import meditation from './audio/ocean_meditation.mp3'
 
 const AudioVisualizer = () => {
 

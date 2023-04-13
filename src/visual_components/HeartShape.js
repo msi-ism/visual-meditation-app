@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react'
+import './HeartShape.css';
 
 
 
@@ -28,16 +29,6 @@ const HeartShape = () => {
         }
     }
 
-    // const breathChange = () => {
-
-    //     if (toggle == 'on') {
-
-    //     } else if (toggle == 'off') {
-    //         console.log('interval should be cleared')
-            
-    //     }
-    // }
-
     const switchText = () => {
         if (nextBreath == 'Inhale') {
             nextBreath = 'Exhale'
@@ -62,9 +53,6 @@ const HeartShape = () => {
     }
 
     useEffect(() => {
-        console.log(toggle)
-        console.log(breath)
-        console.log(timer)
 
     }, [breath])
 

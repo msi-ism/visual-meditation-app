@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import HeartShape from './HeartShape';
+import HeartShape from './visual_components/HeartShape';
 import AudioVisualizer from './AudioVisualizer';
 
 function App() {
