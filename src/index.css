@@ -92,3 +92,10 @@ code {
       transform: scale(1);
   }
 }
+
+#audio-wave {
+  width: auto;
+  height: auto;
+
+}
+

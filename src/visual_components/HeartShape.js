@@ -12,7 +12,7 @@ const HeartShape = () => {
 
     const toggleAnimation = () => {
         const shape = document.querySelector('.shape')
-        if (toggle == 'off') {
+        if (toggle === 'off') {
             setToggle('on')
             console.log(toggle)
             shape.style.animation = 'breathing 6s infinite linear'
@@ -20,7 +20,7 @@ const HeartShape = () => {
             setBreath(nextBreath)
             startTimer()
             console.log('toggle is now on')
-        } else if (toggle == 'on') {
+        } else if (toggle === 'on') {
             setToggle('off')
             console.log(toggle)
             shape.style.animation = ''
@@ -30,11 +30,11 @@ const HeartShape = () => {
     }
 
     const switchText = () => {
-        if (nextBreath == 'Inhale') {
+        if (nextBreath === 'Inhale') {
             nextBreath = 'Exhale'
             setBreath(nextBreath)
             console.log('text should now be exhale')
-        } else if (nextBreath == 'Exhale') {
+        } else if (nextBreath === 'Exhale') {
             nextBreath = 'Inhale'
             setBreath(nextBreath)
             console.log('text should now be inhale')

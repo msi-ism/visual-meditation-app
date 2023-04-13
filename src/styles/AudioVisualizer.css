@@ -1,0 +1,26 @@
+.audio-player {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    height: auto;
+    width: 400px;
+    border: 3px solid black;
+    align-items: center;
+    padding: 0;
+    
+
+}
+
+.audio-player > .sound-wave {
+    width: auto;
+    height: auto;
+    background-color: white;
+    padding: 0;
+    margin: 0;
+
+  }
+
+
+.play-btn {
+    max-height: 30px;
+    padding: 14px;
+}

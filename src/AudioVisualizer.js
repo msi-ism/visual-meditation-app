@@ -1,16 +1,27 @@
 import React from 'react';
-import { Wave } from '@foobar404/wave'
-import {useState, useEffect} from 'react'
+import WaveSurfer from 'wavesurfer.js'
+import { useState, useEffect } from 'react'
 import ReactAudioPlayer from 'react-audio-player';
 import meditation from './audio/ocean_meditation.mp3'
+import playIco from './images/play.png'
+import './styles/AudioVisualizer.css';
+
+let currentTrack = {}
 
 const AudioVisualizer = () => {
 
-
     useEffect(() => {
-        // let audioEl = document.querySelector('.audio')
-        // let canvasEl = document.querySelector('.canvas-audio');
-        // let wave = new Wave(audioEl, canvasEl);
+
+        currentTrack = WaveSurfer.create({
+            container: '#audio-wave',
+            waveColor: 'magenta',
+            progressColor: 'purple',
+            backgroundColor: '',
+            hideScrollbar: true,
+            height: 128,
+            barHeight: 3
+        })
+        currentTrack.load(meditation);
 
     }, [])
 
@@ -18,12 +29,10 @@ const AudioVisualizer = () => {
     return (
         <div>
             <h1>Audio Visualizer</h1>
-            <div className="canvas-audio">
-                <ReactAudioPlayer 
-                    src={meditation}
-                    autoPlay={false}
-                    controls
-                />
+            <div className='audio-player'>
+                <img className='play-btn' src={playIco}></img>
+                <div className='sound-wave' id="audio-wave">
+                </div>
             </div>
         </div>
     );
