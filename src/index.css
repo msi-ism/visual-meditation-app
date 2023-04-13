@@ -5,9 +5,90 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  font-family: 'Rubik';
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.canvas {
+
+  border: 1px solid black;
+  background-color: white;
+  left: 0;
+  width: 55vw;
+  height: 55vh;
+}
+
+.shape {
+  margin: 50px;
+  width: 340px;
+  height: 270px;
+  position: relative;
+  animation: '';
+  animation-timing-function: linear;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.shape::before, .shape::after {
+  background-color: #f00;
+  position: absolute;
+  content: '';
+  width: 50%;
+  height: 100%;
+  top: -50%;
+  border-radius: 80px 80px 0 0;
+}
+
+.shape::before {
+  left: 14.5%;
+  transform: rotate(45deg);
+  transform-origin: 0 100%;
+
+}
+.shape::after {
+  left: 35%;
+  transform: rotate(-45deg);
+  transform-origin: 100% 100%;
+}
+
+.shape-text {
+  font-size: 24px;
+  z-index: 1;
+  color: white;
+  align-self: center;
+  margin-top: 25%;
+  font-family: 'Rubik';
+}
+
+@keyframes breathing {
+  0% {
+      transform: scale(1);
+  }
+
+  30% {
+      /* transform: scale(0.8); */
+      transform: scale(1.25);
+  }
+
+  50% {
+      transform: scale(1.5);
+  }
+
+  70% {
+      transform: scale(1.25);
+  }
+
+  100% {
+      transform: scale(1);
+  }
 }
