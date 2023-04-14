@@ -5,6 +5,7 @@ import AudioVisualizer from './AudioVisualizer';
 import Seagull from './visual_components/Seagull';
 import Fish from './visual_components/Fish'
 import eye from './images/eye.png'
+import BreathText from './visual_components/BreathText';
 
 
 function App() {
@@ -17,7 +18,8 @@ function App() {
       {/* <HeartShape /> */}
       {/* <Seagull /> */}
       <Fish />
-      <AudioVisualizer />
+      {/* <BreathText /> */}
+      {/* <AudioVisualizer /> */}
     </div>
   );
 }
