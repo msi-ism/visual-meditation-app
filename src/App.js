@@ -8,7 +8,8 @@ import Seagull from './visual_components/Seagull';
 function App() {
   return (
     <div className="App">
-      <h1>Open-Eyed Meditation</h1>
+      <h1>Open-Eye Visual Meditations</h1>
+      <p>Made with ❤️ by: M.S. Irby</p>
       {/* <HeartShape /> */}
       <Seagull />
       <AudioVisualizer />

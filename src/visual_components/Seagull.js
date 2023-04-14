@@ -9,7 +9,7 @@ const Seagull = () => {
                 autoplay
                 loop
                 src={animationJSON}
-                style={{ height: '400px', width: '400px' }}
+                style={{ height: '400px', width: '400px', borderRadius: '50%' }}
                 speed={.3}
             >
                 <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />

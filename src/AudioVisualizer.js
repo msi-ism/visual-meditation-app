@@ -17,12 +17,12 @@ const AudioVisualizer = () => {
 
         currentTrack = WaveSurfer.create({
             container: '#audio-wave',
-            waveColor: 'magenta',
-            progressColor: 'purple',
+            waveColor: 'black',
+            progressColor: 'violet',
             backgroundColor: '',
             hideScrollbar: true,
             height: 100,
-            barHeight: 2
+            barHeight: 3
         })
         currentTrack.load(meditation);
 
@@ -31,16 +31,22 @@ const AudioVisualizer = () => {
     const playAudio = () => {
         setButton(pauseIco)
         currentTrack.playPause()
-    
-        }
+
+    }
 
 
     return (
         <div>
             <h1>Guided Meditations</h1>
             <div className='audio-player'>
-                <div className='media-controls'>
-                <img className='play-btn' src={controlButton} onClick={playAudio}></img>
+                <div className='audio-header'>
+                    <div className='media-controls'>
+                        <img className='play-btn' src={controlButton} onClick={playAudio}></img>
+                    </div>
+                    <div className='audio-title'>
+                        <h3>Beachside Meditation</h3>
+                        <p>By: Micheal Sinclair</p>
+                    </div>
                 </div>
                 <div className='sound-wave' id="audio-wave">
                 </div>
