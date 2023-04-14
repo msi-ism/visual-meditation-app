@@ -6,7 +6,7 @@ import AudioVisualizer from './AudioVisualizer';
 function App() {
   return (
     <div className="App">
-      <h1>Hello Meditation App!</h1>
+      <h1>Open-Eyed Meditation</h1>
       <HeartShape />
       <AudioVisualizer />
     </div>

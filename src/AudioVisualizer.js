@@ -18,8 +18,8 @@ const AudioVisualizer = () => {
             progressColor: 'purple',
             backgroundColor: '',
             hideScrollbar: true,
-            height: 128,
-            barHeight: 3
+            height: 100,
+            barHeight: 2
         })
         currentTrack.load(meditation);
 
@@ -28,9 +28,11 @@ const AudioVisualizer = () => {
 
     return (
         <div>
-            <h1>Audio Visualizer</h1>
+            <h1>Guided Meditations</h1>
             <div className='audio-player'>
+                <div className='media-controls'>
                 <img className='play-btn' src={playIco}></img>
+                </div>
                 <div className='sound-wave' id="audio-wave">
                 </div>
             </div>
