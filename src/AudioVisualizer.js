@@ -22,7 +22,7 @@ const AudioVisualizer = () => {
             backgroundColor: '',
             hideScrollbar: true,
             height: 100,
-            barHeight: 3
+            barHeight: 2
         })
         currentTrack.load(meditation);
 
@@ -37,15 +37,15 @@ const AudioVisualizer = () => {
 
     return (
         <div>
-            <h1>Guided Meditations</h1>
+            <h2>Guided Meditations</h2>
             <div className='audio-player'>
                 <div className='audio-header'>
                     <div className='media-controls'>
                         <img className='play-btn' src={controlButton} onClick={playAudio}></img>
                     </div>
                     <div className='audio-title'>
-                        <h3>Beachside Meditation</h3>
-                        <p>By: Micheal Sinclair</p>
+                        <h3>Oceanside Meditation</h3>
+                        <p>By: M.S. Irby</p>
                     </div>
                 </div>
                 <div className='sound-wave' id="audio-wave">

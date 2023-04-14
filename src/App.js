@@ -3,15 +3,20 @@ import './App.css';
 import HeartShape from './visual_components/HeartShape';
 import AudioVisualizer from './AudioVisualizer';
 import Seagull from './visual_components/Seagull';
+import Fish from './visual_components/Fish'
+import eye from './images/eye.png'
 
 
 function App() {
   return (
     <div className="App">
-      <h1>Open-Eye Visual Meditations</h1>
-      <p>Made with ❤️ by: M.S. Irby</p>
+      <div className='page-title'>
+        <h1 className='main-title'>Visual <img className='title-eye' src={eye}></img> Meditations</h1>
+      </div>
+      <p className='sub-title'>Made with ❤️ by: M.S. Irby</p>
       {/* <HeartShape /> */}
-      <Seagull />
+      {/* <Seagull /> */}
+      <Fish />
       <AudioVisualizer />
     </div>
   );
