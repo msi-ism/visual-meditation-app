@@ -67,7 +67,7 @@ const Seagull = () => {
             >
                 <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
             </Player>
-            <button onClick={startAnimation}>Start Meditation</button>
+            <button className='start-btn' onClick={startAnimation}>Start Meditation</button>
             <p>{frames}</p>
             {breath}
 

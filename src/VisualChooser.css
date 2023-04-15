@@ -1,0 +1,14 @@
+.choice-holder {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    height: auto;
+    margin: 20px;
+}
+
+
+.choice > .choice-img {
+    max-height: 100px;
+    border: 1px solid black;
+  
+}
