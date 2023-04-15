@@ -60,14 +60,19 @@
 }
 
 
-
 .App > .page-title {
   grid-column-start: 2;
 }
 
 .choice-container {
   grid-column-start: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(158, 89, 89, .1);
+  border-radius: 5%;
 }
 .animation-container {
   grid-column-start: 2;
+  width: 100%;
+  height: auto;
 }

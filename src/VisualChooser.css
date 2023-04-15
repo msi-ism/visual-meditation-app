@@ -4,13 +4,21 @@
     width: auto;
     height: auto;
     margin: 20px;
+    justify-content: center;
 }
 
 
 .choice > .choice-img {
     max-height: 100px;
     border: 1px solid black;
+    transition: .5s ease;
+    backface-visibility: hidden;
   
+}
+
+.choice-img:hover {
+    opacity: 0.3;
+
 }
 .active {
     border: 3px solid blue;
