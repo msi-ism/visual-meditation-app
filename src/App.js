@@ -16,8 +16,8 @@ function App() {
       </div>
       <p className='sub-title'>Made with ❤️ by: M.S. Irby</p>
       {/* <HeartShape /> */}
-      {/* <Seagull /> */}
-      <Fish />
+      <Seagull />
+      {/* <Fish /> */}
       {/* <BreathText /> */}
       {/* <AudioVisualizer /> */}
     </div>

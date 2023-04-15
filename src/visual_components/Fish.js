@@ -65,15 +65,12 @@ const Fish = () => {
                     }
                 }}
         
-
-
-
             // speed={.27}
             >
                 <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
             </Player>
-            <BreathText startAnimation={startAnimation} />
-            {/* <button onClick={startAnimation}>Start Animation</button> */}
+            {/* <BreathText startAnimation={startAnimation} /> */}
+            <button onClick={startAnimation}>Start Meditation</button>
             <p>{frames}</p>
             {breath}
 
