@@ -1,0 +1,40 @@
+.swing-box {
+    height: 100%;
+    width: 100%;
+    padding: 30px;
+    margin-top: 10px;
+    padding-top: 0px;
+    
+}
+ /* .swing-box > .tree-limb {
+    border-top: 30px solid rgb(104, 92, 92);
+    background-color: blue;
+    height: auto;
+    width: auto;
+    transform: skew(-7deg, -7deg);
+
+} */
+
+.swing {
+    max-height: 300px;
+    animation: '';
+    transform-origin: 50% top;
+    /* margin-top: -10px; */
+    
+
+}
+
+@keyframes swing {
+    0%{
+        transform: rotateZ(10deg);
+
+    }
+    50%{
+        transform: rotateZ(-10deg);
+
+    }
+    100%{
+        transform: rotateZ(10deg);
+
+    }
+}

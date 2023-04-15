@@ -3,6 +3,7 @@ import {useState, useEffect, useRef} from 'react'
 import seagullPic from './images/seagull.png'
 import fishPic from './images/fish.png'
 import heartPic from './images/heartshape.png'
+import swingPic from './images/swing_choice.png'
 import './VisualChooser.css'
 
 const VisualChooser = ({setAnimation, animations}) => {
@@ -28,6 +29,7 @@ const VisualChooser = ({setAnimation, animations}) => {
                 <div onClick={handleClick} className='choice'><img id='0' className='choice-img' src={heartPic}></img></div>
                 <div onClick={handleClick}  className='choice'><img id='1' className='choice-img' src={seagullPic}></img></div>
                 <div onClick={handleClick} className='choice'><img id='2' className='choice-img' src={fishPic}></img></div>
+                <div onClick={handleClick} className='choice'><img id='3' className='choice-img' src={swingPic}></img></div>
  
             </div>
             

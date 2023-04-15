@@ -3,6 +3,7 @@ import { Player, Controls } from '@lottiefiles/react-lottie-player'
 import { useRef } from 'react'
 import animationJSON from '../lotties/fish.json'
 import BreathText from './BreathText';
+import './Fish.css'
 
 let testText = 'test'
 const Fish = () => {
@@ -30,8 +31,6 @@ const Fish = () => {
     useEffect(() => {
 
 
-
-
     }, [toggle]);
 
 
@@ -39,10 +38,11 @@ const Fish = () => {
         <div>
             <Player
                 ref={animation}
+                className='fish-container'
                 autoplay={false}
                 loop
                 src={animationJSON}
-                style={{ height: '450px', width: '456px' }}
+                style={{ height: '400px', width: '400px' }}
                 onEvent={event => {
                     if (event === 'frame') {
                         let currentFrame = frames => frames + 1
@@ -67,12 +67,14 @@ const Fish = () => {
         
             // speed={.27}
             >
+                
                 <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
             </Player>
+            <p className='breath'>{breath}</p>
             {/* <BreathText startAnimation={startAnimation} /> */}
-            <button onClick={startAnimation}>Start Meditation</button>
+            <button className='start-btn' onClick={startAnimation}>Start Meditation</button>
             <p>Frame: {frames}</p>
-            {breath}
+        
 
 
         </div>
