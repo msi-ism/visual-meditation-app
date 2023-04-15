@@ -9,6 +9,8 @@ import BreathText from './visual_components/BreathText';
 import VisualChooser from './VisualChooser';
 
 
+
+
 function App() {
   return (
     <div className="App">
