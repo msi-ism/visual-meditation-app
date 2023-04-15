@@ -71,7 +71,7 @@ const Fish = () => {
             </Player>
             {/* <BreathText startAnimation={startAnimation} /> */}
             <button onClick={startAnimation}>Start Meditation</button>
-            <p>{frames}</p>
+            <p>Frame: {frames}</p>
             {breath}
 
 

@@ -7,11 +7,13 @@ import Fish from './visual_components/Fish'
 import eye from './images/eye.png'
 import BreathText from './visual_components/BreathText';
 import VisualChooser from './VisualChooser';
+import { useState } from 'react';
 
 
-
+let animations = [<HeartShape />, <Seagull name='seagull'/>, <Fish />]
 
 function App() {
+  const [animation, setAnimation] = useState(animations[0])
   return (
     <div className="App">
       <div className='page-title'>
@@ -19,14 +21,12 @@ function App() {
       <p className='sub-title'>Made with ❤️ by: M.S. Irby</p>
       </div>
       <div className='choice-container'>
-      <VisualChooser />
+      <VisualChooser animations={animations} setAnimation={setAnimation}/>
       </div>
       <div className='animation-container'>
         {/* <HeartShape /> */}
-        <Seagull />
-
-        {/* <Fish /> */}
-        {/* <BreathText /> */}
+        {/* <Seagull /> */}
+        {animation}
         {/* <AudioVisualizer /> */}
       </div>
     </div>
