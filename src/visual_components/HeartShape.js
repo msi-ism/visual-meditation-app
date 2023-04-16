@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState, useEffect } from 'react'
 import './HeartShape.css';
+import heartBody from '../images/heart_doodle.png'
+import heartBeat from '../images/beating_doodle.png'
 
 
 
@@ -58,10 +60,11 @@ const HeartShape = () => {
 
 
     return (
-        <div>
-            <div className="shape">
-                <h2 className="shape-text">{breath}</h2>
-            </div>
+        <div className='heart-container'>
+            <img src={heartBody} className='heart-background'></img>
+            <img src={heartBeat} className='shape'>
+            </img>
+            <h2 className="shape-text">{breath}</h2>
             <button className="play-btn" onClick={toggleAnimation}>Play/Pause Animation</button>
         </div>
     );
