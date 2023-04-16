@@ -9,12 +9,21 @@
     margin-top: 20px;
 }
 
-.breath {
+.fish-breath {
     font-size: 36px;
     position: absolute;
     top: 165px;
     left: 0;
     right: 0;
     margin: 0 auto;
+    opacity: 0;
+    animation: '';
 
 }
+
+
+
+@keyframes fade {
+    0%, 100% { opacity: 0 }
+    33% { opacity: 1 }
+  }

@@ -13,16 +13,25 @@ const Fish = () => {
     const animation = useRef();
 
     const startAnimation = () => {
+        let breathText = document.querySelector('.fish-breath')
         if (toggle == 'off') {
             setToggle('on')
             console.log(toggle)
             animation.current.play()
+            // breathText.style.animation = 'fade 3s 1 ease-in-out'
 
         } else if (toggle == 'on') {
             animation.current.stop()
+            breathText.style.animation = ''
             setToggle('off')
             console.log(toggle)
         }
+
+    }
+
+    const cutAnimation = () => {
+        let breathText = document.querySelector('.fish-breath')
+        breathText.style.animation = ''
 
     }
 
@@ -47,17 +56,24 @@ const Fish = () => {
                     if (event === 'frame') {
                         let currentFrame = frames => frames + 1
                         setFrames(currentFrame)
+                        // console.log(frames)
                         
                     } 
                     if (frames === 1) {
+                        let breathText = document.querySelector('.fish-breath')
+                        breathText.style.animation = 'fade 3s 1 ease-in-out'
+                        setTimeout(cutAnimation, 3000)
                         let inhale = 'Inhale'
                         setBreath(inhale)
                         console.log('1st frame')
                     }
-                    if (frames === 364) {
+                    if (frames === 368) {
+                        let breathText = document.querySelector('.fish-breath')
+                        breathText.style.animation = 'fade 3s 1 ease-in-out'
+                        setTimeout(cutAnimation, 3000)
                         let exhale = 'Exhale'
                         setBreath(exhale)
-                        console.log('364 frames')
+                        console.log('367 frames')
                     }
                     if (event === 'loop') {
                         console.log('loop complete')
@@ -70,7 +86,7 @@ const Fish = () => {
                 
                 <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
             </Player>
-            <p className='breath'>{breath}</p>
+            {breath == 'Inhale' ? <p className='fish-breath'>{breath}</p> :<p className='fish-breath'>{breath}</p> }
             {/* <BreathText startAnimation={startAnimation} /> */}
             <button className='start-btn' onClick={startAnimation}>Start Meditation</button>
             <p>Frame: {frames}</p>

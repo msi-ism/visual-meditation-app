@@ -2,6 +2,7 @@ import React from 'react';
 import { Player, Controls } from '@lottiefiles/react-lottie-player'
 import {useState, useEffect, useRef} from 'react'
 import animationJSON from '../lotties/seagull.json'
+import './Seagull.css'
 
 const Seagull = () => {
     const [toggle, setToggle] = useState('off')
@@ -69,7 +70,7 @@ const Seagull = () => {
             </Player>
             <button className='start-btn' onClick={startAnimation}>Start Meditation</button>
             <p>Frame: {frames}</p>
-            {breath}
+            <p className='sea-breath'>{breath}</p>
 
         </div>
     );
