@@ -13,7 +13,9 @@
   top: 115px;
   text-align: center;
   animation: "";
-  animation-timing-function: linear;
+  filter: '';
+  
+
 }
 
 .heart-container > .heart-background {

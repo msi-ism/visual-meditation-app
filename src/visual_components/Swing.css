@@ -19,6 +19,7 @@
     max-height: 300px;
     animation: '';
     transform-origin: 50% top;
+    transform: rotate(15deg);
     /* margin-top: -10px; */
     
 

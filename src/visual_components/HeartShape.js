@@ -18,6 +18,7 @@ const HeartShape = () => {
             setToggle('on')
             console.log(toggle)
             shape.style.animation = 'breathing 6s infinite linear'
+            shape.style.filter = 'drop-shadow(0px 0px 30px rgb(176, 156, 163))'
             nextBreath = 'Inhale'
             setBreath(nextBreath)
             startTimer()
@@ -26,6 +27,7 @@ const HeartShape = () => {
             setToggle('off')
             console.log(toggle)
             shape.style.animation = ''
+            shape.style.filter = ''
             killTimer()
             console.log('toggle is now off')
         }
