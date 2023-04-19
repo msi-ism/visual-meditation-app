@@ -18,7 +18,10 @@
     margin: 0 auto;
     opacity: 0;
     animation: '';
+}
 
+.duration-btns {
+    margin-top: 20px;
 }
 
 

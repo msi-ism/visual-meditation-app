@@ -65,21 +65,21 @@ const Fish = () => {
                     if (event === 'frame') {
                         let currentFrame = frames => frames + 1
                         setFrames(currentFrame)
-                        // console.log(frames)
+                        console.log(frames)
 
                     } 
                     if (frames === 1) {
                         let breathText = document.querySelector('.fish-breath')
                         breathText.style.animation = 'fade 3s 1 ease-in-out'
-                        setTimeout(cutAnimation, 3000)
+                        setTimeout(cutAnimation, 2900)
                         let inhale = 'Inhale'
                         setBreath(inhale)
                         console.log('1st frame')
                     }
-                    if (frames === 368) {
+                    if (frames === 188) {
                         let breathText = document.querySelector('.fish-breath')
                         breathText.style.animation = 'fade 3s 1 ease-in-out'
-                        setTimeout(cutAnimation, 3000)
+                        setTimeout(cutAnimation, 2900)
                         let exhale = 'Exhale'
                         setBreath(exhale)
                         console.log('367 frames')

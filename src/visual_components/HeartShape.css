@@ -2,7 +2,7 @@
   position: relative;
 }
 
-.heart-container > .shape {
+.heart-box > .shape {
   width: auto;
   height: 57px;
   position: absolute;
@@ -18,7 +18,7 @@
 
 }
 
-.heart-container > .heart-background {
+.heart-box > .heart-background {
   max-width: 400px;
   top: 65px;
   z-index: 0;
@@ -46,9 +46,9 @@
     transform-origin: 100% 100%;
   } */
 
-.shape-text {
+.heart-text {
   font-size: 24px;
-  color: white;
+  color: black;
   align-self: center;
   margin-top: 25%;
   font-family: "Rubik";

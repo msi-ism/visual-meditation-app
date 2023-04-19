@@ -1,9 +1,33 @@
 .sea-breath {
-    font-size: 32px;
+    font-size: 36px;
     position: absolute;
-    top: 190px;
+    top: 165px;
     left: 0;
     right: 0;
     margin: 0 auto;
+    opacity: 0;
+    animation: '';
 
 }
+
+
+.sea-container {
+    border: 8px solid rgb(69, 160, 183);
+    border-radius: 50%;
+    position: relative;
+
+   
+}
+.start-btn {
+    margin-top: 20px;
+}
+
+.duration-btns {
+    margin-top: 20px;
+}
+
+
+@keyframes fade {
+    0%, 100% { opacity: 0 }
+    33% { opacity: 1 }
+  }
