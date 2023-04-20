@@ -19,11 +19,13 @@ const HeartShape = () => {
 
     const toggleAnimation = () => {
         const shape = document.querySelector('.shape')
+        const shapeGlow = document.querySelector('.shape-glow')
         if (toggle === 'off' && count < duration) {
             setToggle('on')
             console.log(toggle)
             shape.style.animation = `breathing 6s ${duration} linear`
-            shape.style.filter = 'drop-shadow(0px 0px 30px rgb(176, 156, 163))'
+            shapeGlow.style.animation = `breathing 6s ${duration} linear`
+            // shape.style.filter = 'drop-shadow(0px 0px 30px rgb(176, 156, 163))'
             nextBreath = 'Inhale'
             setBreath(nextBreath)
             startTimer()
@@ -45,17 +47,27 @@ const HeartShape = () => {
 
     }
 
+    const cutAnimation = () => { 
+        let breathText = document.querySelector('.breath-text')
+        breathText.style.animation = ''
+
+    }
+
 
     const switchText = () => {
+        let breathText = document.querySelector('.breath-text')
+        breathText.style.animation = 'fade 3s 1 ease-in-out'
         if (nextBreath === 'Inhale') {
             nextBreath = 'Exhale'
             setBreath(nextBreath)
+            setTimeout(cutAnimation, 2990)
             console.log('text should now be exhale')
             console.log('Count:' + countRef.current)
             console.log('Duration:' + duration)
         } else if (nextBreath === 'Exhale') {
             nextBreath = 'Inhale'
             setBreath(nextBreath)
+            setTimeout(cutAnimation, 2990)
             console.log('text should now be inhale')
         } else {
             killTimer()
@@ -89,9 +101,11 @@ const HeartShape = () => {
         <div className='heart-container'>
             <div className='heart-box'>
             <img src={heartBody} className='heart-background'></img>
+            <div src={heartBeat} className='shape-glow' >
+            </div>
             <img src={heartBeat} className='shape' onAnimationIteration={countIteration} onAnimationEnd={killTimer}>
             </img>
-            <h2 className="heart-text">{breath}</h2>
+            <h2 className="breath-text">{breath}</h2>
             </div>
             <button className="play-btn" onClick={toggleAnimation}>Play/Pause Animation</button>
             <div className='duration-btns'>

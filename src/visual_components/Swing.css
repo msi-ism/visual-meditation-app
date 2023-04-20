@@ -1,9 +1,15 @@
-.swing-box {
-    height: 100%;
-    width: 100%;
-    padding: 30px;
-    margin-top: 10px;
-    padding-top: 0px;
+.swing-container {
+    width: auto;
+    height: auto;
+}
+
+.swing-container > .swing-box {
+    height: auto;
+    width: auto;
+    padding: 40px;
+    margin: 10px;
+    padding-bottom: 0px;
+    border: solid black 15px;
     
 }
  /* .swing-box > .tree-limb {
@@ -16,13 +22,17 @@
 } */
 
 .swing {
-    max-height: 300px;
+    max-height: 350px;
+    width: auto;
     animation: '';
     transform-origin: 50% top;
     transform: rotate(15deg);
-    /* margin-top: -10px; */
+    margin-top: 16px;
     
+}
 
+.breath-text {
+    font-size: 40px;
 }
 
 @keyframes swing {
@@ -39,3 +49,8 @@
 
     }
 }
+
+@keyframes fade {
+    0%, 100% { opacity: 0 }
+    33% { opacity: 1 }
+  }
