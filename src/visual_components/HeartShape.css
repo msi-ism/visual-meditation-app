@@ -1,5 +1,10 @@
 .heart-container {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .heart-box > .shape {
@@ -38,6 +43,26 @@
   max-width: 400px;
   top: 65px;
   z-index: 0;
+}
+
+.control-btns > .play-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    max-width: 40px;
+    height: 40px;
+    background-color: rgb(83, 192, 136);
+    border-radius: 100%;
+    margin: 20px;
+    font-family: 'Rubik';
+    font-size: 18px;
+}
+
+.play-btn:hover {
+    opacity: 0.85;
+    cursor: pointer;
+
 }
 
 
@@ -79,15 +104,15 @@
 
   @keyframes glowing {
     0% {
-        box-shadow: 0px 0px 20px rgba(224, 169, 68, 0.647);
+        box-shadow: 0px 0px 40px rgba(224, 169, 68, 0.75);
   
     }
     50% {
-        box-shadow: 0px 0px 200px rgba(255, 166, 0, 0.578);
+        box-shadow: 0px 0px 400px rgba(255, 166, 0, 0.785);
   
     }
     100% {
-        box-shadow: 0px 0px 2000px rgba(238, 179, 71, 0.605);
+        box-shadow: 0px 0px 4000px rgba(238, 179, 71, 0.7);
     
     }
   }

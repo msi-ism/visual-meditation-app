@@ -3,6 +3,7 @@ import { Player, Controls } from '@lottiefiles/react-lottie-player'
 import {useState, useEffect, useRef} from 'react'
 import animationJSON from '../lotties/seagull.json'
 import './Seagull.css'
+import ControlButtons from '../ControlButtons';
 
 const Seagull = () => {
     const [duration, setDuration] = useState(50)
@@ -12,7 +13,7 @@ const Seagull = () => {
     const [breath, setBreath] = useState('Not Breathing')
     const animation = useRef();
 
-    const startAnimation = () => {
+    const toggleAnimation = () => {
         let breathText = document.querySelector('.sea-breath')
         console.log(duration)
         if (toggle === 'off') {
@@ -38,9 +39,18 @@ const Seagull = () => {
 
     const updateDuration = (evt) => {
         let newDuration = evt.target.id
+        let buttons = document.querySelectorAll('.db')
+        console.log(buttons)
+        for (let i = 0; i < buttons.length; i++) {
+            if (buttons[i].classList.contains('active-btn')) {
+                buttons[i].classList.remove('active-btn')
+            }
+        }
+        evt.currentTarget.classList.toggle('active-btn')
+        console.log(newDuration)
         setDuration(newDuration)
-
     }
+
 
     useEffect(() => {
         console.log(duration)
@@ -97,15 +107,8 @@ const Seagull = () => {
                 <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
             </Player>
             {breath == 'Inhale' ? <p className='sea-breath'>{breath}</p> :<p className='sea-breath'>{breath}</p> }
-            <div className='duration-btns'>
-                <button id='10' onClick={updateDuration}>1min</button>
-                <button id='50' onClick={updateDuration}>5min</button>
-                <button id='100' onClick={updateDuration}>10min</button>
-            </div>
-            <button className='start-btn' onClick={startAnimation}>Start Meditation</button>
-            <p>Frame: {frames}</p>
-            <p>Breath Count: {breathCount}</p>
-            <p>Current Duration: {duration}</p>
+
+            <ControlButtons {...{duration, breath, toggleAnimation, updateDuration}}/>    
 
         </div>
     );

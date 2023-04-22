@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import animationJSON from '../lotties/fish.json'
 import BreathText from './BreathText';
 import './Fish.css'
+import ControlButtons from '../ControlButtons';
 
 
 const Fish = () => {
@@ -14,7 +15,7 @@ const Fish = () => {
     const [breath, setBreath] = useState('Not Breathing')
     const animation = useRef();
 
-    const startAnimation = () => {
+    const toggleAnimation = () => {
         let breathText = document.querySelector('.fish-breath')
         console.log(duration)
         if (toggle == 'off') {
@@ -40,9 +41,18 @@ const Fish = () => {
 
     const updateDuration = (evt) => {
         let newDuration = evt.target.id
+        let buttons = document.querySelectorAll('.db')
+        console.log(buttons)
+        for (let i = 0; i < buttons.length; i++) {
+            if (buttons[i].classList.contains('active-btn')) {
+                buttons[i].classList.remove('active-btn')
+            }
+        }
+        evt.currentTarget.classList.toggle('active-btn')
+        console.log(newDuration)
         setDuration(newDuration)
-
     }
+
 
     useEffect(() => {
         console.log(duration)
@@ -98,16 +108,7 @@ const Fish = () => {
                 <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
             </Player>
             {breath == 'Inhale' ? <p className='fish-breath'>{breath}</p> :<p className='fish-breath'>{breath}</p> }
-            <div className='duration-btns'>
-                <button id='10' onClick={updateDuration}>1min</button>
-                <button id='50' onClick={updateDuration}>5min</button>
-                <button id='100' onClick={updateDuration}>10min</button>
-            </div>
-            <button className='start-btn' onClick={startAnimation}>Start Meditation</button>
-            <p>Frame: {frames}</p>
-            <p>Breath Count: {breathCount}</p>
-            <p>Current Duration: {duration}</p>
-        
+            <ControlButtons {...{duration, breath, toggleAnimation, updateDuration}}/>    
 
 
         </div>

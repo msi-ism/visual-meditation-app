@@ -7,6 +7,7 @@
     height: auto;
     width: auto;
     padding: 40px;
+    padding-top: 10px;
     margin: 10px;
     padding-bottom: 0px;
     border: solid black 15px;
@@ -27,7 +28,7 @@
     animation: '';
     transform-origin: 50% top;
     transform: rotate(15deg);
-    margin-top: 16px;
+
     
 }
 

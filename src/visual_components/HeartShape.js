@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react'
 import './HeartShape.css';
 import heartBody from '../images/heart_doodle.png'
 import heartBeat from '../images/beating_doodle.png'
+import ControlButtons from '../ControlButtons';
 
 
 
@@ -12,7 +13,7 @@ const HeartShape = () => {
     const [toggle, setToggle] = useState('off')
     const [breath, setBreath] = useState('not breathing')
     const [timer, setTimer] = useState('')
-    const [duration, setDuration] = useState(51)
+    const [duration, setDuration] = useState(50)
     const [count, setCount] = useState(0)
     const countRef = useRef()
     countRef.current = count
@@ -40,14 +41,14 @@ const HeartShape = () => {
         }
     }
 
-    
+
     const countIteration = () => {
         let newCount = count => count + 1
         setCount(newCount)
 
     }
 
-    const cutAnimation = () => { 
+    const cutAnimation = () => {
         let breathText = document.querySelector('.breath-text')
         breathText.style.animation = ''
 
@@ -87,36 +88,35 @@ const HeartShape = () => {
 
     const updateDuration = (evt) => {
         let newDuration = evt.target.id
+        let buttons = document.querySelectorAll('.db')
+        console.log(buttons)
+        for (let i = 0; i < buttons.length; i++) {
+            if (buttons[i].classList.contains('active-btn')) {
+                buttons[i].classList.remove('active-btn')
+            }
+        }
+        evt.currentTarget.classList.toggle('active-btn')
+        console.log(newDuration)
         setDuration(newDuration)
-
     }
 
     useEffect(() => {
 
-        
+
     }, [breath])
 
 
     return (
         <div className='heart-container'>
             <div className='heart-box'>
-            <img src={heartBody} className='heart-background'></img>
-            <div src={heartBeat} className='shape-glow' >
+                <img src={heartBody} className='heart-background'></img>
+                <div src={heartBeat} className='shape-glow' >
+                </div>
+                <img src={heartBeat} className='shape' onAnimationIteration={countIteration} onAnimationEnd={killTimer}>
+                </img>
+                <h2 className="breath-text">{breath}</h2>
             </div>
-            <img src={heartBeat} className='shape' onAnimationIteration={countIteration} onAnimationEnd={killTimer}>
-            </img>
-            <h2 className="breath-text">{breath}</h2>
-            </div>
-            <button className="play-btn" onClick={toggleAnimation}>Play/Pause Animation</button>
-            <div className='duration-btns'>
-                <button id='11' onClick={updateDuration}>1min</button>
-                <button id='51' onClick={updateDuration}>5min</button>
-                <button id='101' onClick={updateDuration}>10min</button>
-                <p>Animation count: {count}</p>
-                <p>Breath Count: {breathCount}</p>
-                <p>Current Duration: {duration}</p>
-
-            </div>
+            <ControlButtons {...{duration, breath, toggleAnimation, updateDuration}}/>
         </div>
     );
 }
