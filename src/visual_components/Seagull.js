@@ -5,12 +5,14 @@ import animationJSON from '../lotties/seagull.json'
 import './Seagull.css'
 import ControlButtons from '../ControlButtons';
 
+let newFrame = ''
+
 const Seagull = () => {
     const [duration, setDuration] = useState(50)
     const [toggle, setToggle] = useState('off')
-    const [frames, setFrames] = useState(0)
     const [breathCount, setBreathCount] = useState(0)
     const [breath, setBreath] = useState('Not Breathing')
+    const [frame, setFrame] = useState(0)
     const animation = useRef();
 
     const toggleAnimation = () => {
@@ -40,7 +42,6 @@ const Seagull = () => {
     const updateDuration = (evt) => {
         let newDuration = evt.target.id
         let buttons = document.querySelectorAll('.db')
-        console.log(buttons)
         for (let i = 0; i < buttons.length; i++) {
             if (buttons[i].classList.contains('active-btn')) {
                 buttons[i].classList.remove('active-btn')
@@ -51,12 +52,17 @@ const Seagull = () => {
         setDuration(newDuration)
     }
 
+    const loaded = () => {
+        console.log('loaded')
+    }
+
+
 
     useEffect(() => {
         console.log(duration)
-
-
     }, [duration]);
+
+
 
 
 
@@ -66,30 +72,40 @@ const Seagull = () => {
             <Player
                 key={duration}
                 ref={animation}
+                // lottieRef={animation}
                 className='sea-container'
                 autoplay={false}
                 loop={duration}
                 src={animationJSON}
                 style={{ height: '400px', width: '400px' }}
                 onEvent={event => {
+                    let totalFrames = window.lottie.getRegisteredAnimations()[0].totalFrames
+                    let halfway = totalFrames/2
+                    if (event === 'load') {
+                        console.log('lottie loaded')
+                        console.log(totalFrames)
+                        console.log(halfway)
+          
+                    }
                     if (event === 'frame') {
-                        let currentFrame = frames => frames + 1
-                        setFrames(currentFrame)
-                        // console.log(frames)
+                        let newFrame = window.lottie.getRegisteredAnimations()[0].currentFrame
+                        setFrame(Math.round(newFrame))
+                        console.log(frame)
+           
 
                     } 
-                    if (frames === 1) {
+                    if (frame === 1) {
                         let breathText = document.querySelector('.sea-breath')
                         breathText.style.animation = 'fade 3s 1 ease-in-out'
-                        setTimeout(cutAnimation, 2900)
+                        setTimeout(cutAnimation, 2500)
                         let inhale = 'Inhale'
                         setBreath(inhale)
                         console.log('1st frame')
                     }
-                    if (frames === 179) {
+                    if (frame === halfway) {
                         let breathText = document.querySelector('.sea-breath')
                         breathText.style.animation = 'fade 3s 1 ease-in-out'
-                        setTimeout(cutAnimation, 2900)
+                        setTimeout(cutAnimation, 2500)
                         let exhale = 'Exhale'
                         setBreath(exhale)
                         console.log('half-way')
@@ -97,18 +113,21 @@ const Seagull = () => {
                     }
                     if (event === 'loop') {
                         console.log('loop complete')
-                        setFrames(0)
+                        // setFrames(0)
                         let currentBreath = breathCount => breathCount + 1
                         setBreathCount(currentBreath)
                     }
                 }}
                 // speed={.3}
             >
-                <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
+                <Controls visible={false} 
+                buttons={['play', 'repeat', 'frame', 'debug']} 
+                />
             </Player>
             {breath == 'Inhale' ? <p className='sea-breath'>{breath}</p> :<p className='sea-breath'>{breath}</p> }
 
             <ControlButtons {...{duration, breath, toggleAnimation, updateDuration}}/>    
+            {frame}
 
         </div>
     );

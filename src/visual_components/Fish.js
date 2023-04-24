@@ -10,7 +10,7 @@ import ControlButtons from '../ControlButtons';
 const Fish = () => {
     const [duration, setDuration] = useState(50)
     const [toggle, setToggle] = useState('off')
-    const [frames, setFrames] = useState(0)
+    const [frame, setFrame] = useState(0)
     const [breathCount, setBreathCount] = useState(0)
     const [breath, setBreath] = useState('Not Breathing')
     const animation = useRef();
@@ -72,31 +72,41 @@ const Fish = () => {
                 src={animationJSON}
                 style={{ height: '400px', width: '400px' }}
                 onEvent={event => {
+                    let totalFrames = window.lottie.getRegisteredAnimations()[0].totalFrames
+                    let halfway = Math.round(totalFrames/2)
+                    if (event === 'load') {
+                        console.log('lottie loaded')
+                        console.log(totalFrames)
+                        console.log(halfway)
+          
+                    }
                     if (event === 'frame') {
-                        let currentFrame = frames => frames + 1
-                        setFrames(currentFrame)
-                        console.log(frames)
+                        let newFrame = window.lottie.getRegisteredAnimations()[0].currentFrame
+                        setFrame(Math.round(newFrame))
+                        console.log(frame)
+           
 
                     } 
-                    if (frames === 1) {
+                    if (frame === 1) {
                         let breathText = document.querySelector('.fish-breath')
                         breathText.style.animation = 'fade 3s 1 ease-in-out'
-                        setTimeout(cutAnimation, 2900)
+                        setTimeout(cutAnimation, 2750)
                         let inhale = 'Inhale'
                         setBreath(inhale)
                         console.log('1st frame')
                     }
-                    if (frames === 188) {
+                    if (frame === halfway) {
                         let breathText = document.querySelector('.fish-breath')
                         breathText.style.animation = 'fade 3s 1 ease-in-out'
-                        setTimeout(cutAnimation, 2900)
+                        setTimeout(cutAnimation, 2750)
                         let exhale = 'Exhale'
                         setBreath(exhale)
-                        console.log('367 frames')
+                        console.log('half-way')
+            
                     }
                     if (event === 'loop') {
                         console.log('loop complete')
-                        setFrames(0)
+                        // setFrames(0)
                         let currentBreath = breathCount => breathCount + 1
                         setBreathCount(currentBreath)
                     }
@@ -105,7 +115,7 @@ const Fish = () => {
             // speed={.27}
             >
                 
-                <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
+                <Controls visible={true} buttons={['play', 'repeat', 'frame', 'debug']} />
             </Player>
             {breath == 'Inhale' ? <p className='fish-breath'>{breath}</p> :<p className='fish-breath'>{breath}</p> }
             <ControlButtons {...{duration, breath, toggleAnimation, updateDuration}}/>    
