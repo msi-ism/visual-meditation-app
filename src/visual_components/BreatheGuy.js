@@ -7,21 +7,32 @@ import './BreatheGuy.css'
 import ControlButtons from '../ControlButtons';
 
 const BreatheGuy = () => {
-    const [duration, setDuration] = useState(50)
+    const [duration, setDuration] = useState('false')
     const [toggle, setToggle] = useState('off')
     const [frame, setFrame] = useState(0)
     const [breathCount, setBreathCount] = useState(0)
     const [breath, setBreath] = useState('Not Breathing')
     const [demoCounter, setDemoCounter] = useState(0)
+    const [durationDisplay, setDurationDisplay] = useState(null)
     const animation = useRef();
+
+    // const checkDuration = () => {
+    //     if (duration == 'false') {
+    //             setDuration(50)
+    //     } else {
+    //         setDuration(duration)
+    //     }
+    // }
 
     const toggleAnimation = () => {
         let breathText = document.querySelector('.guy-breath')
         console.log(duration)
+        if (duration !== 'false') {
         if (toggle == 'off') {
             setToggle('on')
             console.log(toggle)
             animation.current.play()
+            console.log('animation should be playing')
             // breathText.style.animation = 'fade 3s 1 ease-in-out'
 
         } else if (toggle == 'on') {
@@ -30,7 +41,10 @@ const BreatheGuy = () => {
             setToggle('off')
             console.log(toggle)
         }
-
+    } else {
+         console.log('no duration selected')
+    }
+        
     }
 
     const cutAnimation = () => {
@@ -51,25 +65,30 @@ const BreatheGuy = () => {
         evt.currentTarget.classList.toggle('active-btn')
         console.log(newDuration)
         setDuration(newDuration)
+        setDurationDisplay(newDuration)
     }
 
-    const stopAnimation = () => {
-        animation.current.stop()
-        console.log('stopped by useEffect')
-    }
+    // const stopAnimation = () => {
+    //     animation.current.stop()
+    //     console.log('stopped by useEffect')
+    // }
 
     const playDemo = () => {
         if (demoCounter < 1) {
             setDemoCounter(demoCounter => demoCounter + 1)
+            console.log('this is democounter' + demoCounter)
             animation.current.play()
-            setTimeout(stopAnimation, 5900)
+            // setTimeout(stopAnimation, 5900)
         }
     }
+
+
 
 
     useEffect(() => {
         console.log(duration)
         console.log(demoCounter)
+        console.log(toggle)
 
     }, [duration]);
 
@@ -97,9 +116,9 @@ const BreatheGuy = () => {
                     if (event === 'frame') {
                         let newFrame = window.lottie.getRegisteredAnimations()[0].currentFrame
                         setFrame(Math.round(newFrame))
-                        console.log(frame)
+                        // console.log(frame)
                     }
-                    if (frame === 2) {
+                    if (frame === 2 && toggle == 'on') {
                         let breathText = document.querySelector('.guy-breath')
                         breathText.style.animation = 'fade 3s 1 ease-in-out'
                         setTimeout(cutAnimation, 2500)
@@ -107,7 +126,7 @@ const BreatheGuy = () => {
                         setBreath(inhale)
                         console.log('1st frame')
                     }
-                    if (frame === halfway) {
+                    if (frame === halfway && toggle == 'on') {
                         let breathText = document.querySelector('.guy-breath')
                         breathText.style.animation = 'fade 3s 1 ease-in-out'
                         setTimeout(cutAnimation, 2500)
@@ -120,7 +139,9 @@ const BreatheGuy = () => {
                         console.log('loop complete')
                         // setFrames(0)
                         let currentBreath = breathCount => breathCount + 1
+                        let currentDuration = durationDisplay => durationDisplay - 1
                         setBreathCount(currentBreath)
+                        setDurationDisplay(currentDuration)
                     }
                 }}
             >
@@ -128,7 +149,7 @@ const BreatheGuy = () => {
                 <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
             </Player>
             {breath == 'Inhale' ? <p className='guy-breath'>{breath}</p> : <p className='guy-breath'>{breath}</p>}
-            <ControlButtons {...{ duration, breath, toggleAnimation, updateDuration }} />
+            <ControlButtons {...{ duration, breath, toggleAnimation, updateDuration, durationDisplay }} />
         </div>
     );
 }
