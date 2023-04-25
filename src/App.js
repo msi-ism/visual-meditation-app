@@ -10,7 +10,7 @@ import MeditationPeeps from './visual_components/MeditationPeeps';
 import eye from './images/eye.png'
 import BreathText from './visual_components/BreathText';
 import VisualChooser from './VisualChooser';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 
@@ -18,6 +18,16 @@ let animations = [<BreatheGuy />, <MeditationPeeps/>, <Seagull name='seagull'/>,
 
 function App() {
   const [animation, setAnimation] = useState(animations[0])
+  const [demo, setDemo] = useState()
+
+  // const playDemo = (demo) => {
+
+  // }
+
+
+  // useEffect(() => {
+  // }, []);
+
   return (
     <div className="App">
       <div className='page-title'>
