@@ -12,6 +12,7 @@ const MeditationPeeps = () => {
     const [frame, setFrame] = useState(0)
     const [breathCount, setBreathCount] = useState(0)
     const [breath, setBreath] = useState('Not Breathing')
+    const [demoCounter, setDemoCounter] = useState(0)
     const animation = useRef();
 
     const toggleAnimation = () => {
@@ -54,6 +55,18 @@ const MeditationPeeps = () => {
         setDuration(newDuration)
     }
 
+    const playDemo = () => {
+        if (demoCounter < 1) {
+            setDemoCounter(demoCounter => demoCounter + 1)
+            animation.current.play()
+            setTimeout(stopAnimation, 5900)
+        }
+    }
+
+    const stopAnimation = () => {
+        animation.current.stop()
+        console.log('stopped by useEffect')
+    }
 
     useEffect(() => {
         console.log(duration)
@@ -78,8 +91,9 @@ const MeditationPeeps = () => {
                         let halfway = Math.round(totalFrames / 2)
                         if (event === 'load') {
                             console.log('lottie loaded')
-                            console.log(totalFrames)
-                            console.log(halfway)
+                            playDemo()
+                            // console.log(totalFrames)
+                            // console.log(halfway)
                         }
                         if (event === 'frame') {
                             let newFrame = window.lottie.getRegisteredAnimations()[0].currentFrame

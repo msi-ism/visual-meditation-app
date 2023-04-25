@@ -13,6 +13,7 @@ const Seagull = () => {
     const [breathCount, setBreathCount] = useState(0)
     const [breath, setBreath] = useState('Not Breathing')
     const [frame, setFrame] = useState(0)
+    const [demoCounter, setDemoCounter] = useState(0)
     const animation = useRef();
 
     const toggleAnimation = () => {
@@ -52,9 +53,19 @@ const Seagull = () => {
         setDuration(newDuration)
     }
 
-    const loaded = () => {
-        console.log('loaded')
+    const playDemo = () => {
+        if (demoCounter < 1) {
+            setDemoCounter(demoCounter => demoCounter + 1)
+            animation.current.play()
+            setTimeout(stopAnimation, 5900)
+        }
     }
+
+    const stopAnimation = () => {
+        animation.current.stop()
+        console.log('stopped by useEffect')
+    }
+
 
 
 
@@ -85,6 +96,7 @@ const Seagull = () => {
                         console.log('lottie loaded')
                         console.log(totalFrames)
                         console.log(halfway)
+                        playDemo()
           
                     }
                     if (event === 'frame') {
