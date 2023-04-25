@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Player, Controls } from '@lottiefiles/react-lottie-player'
-import { useRef } from 'react'
-import animationJSON from '../lotties/fish.json'
+import { useState, useEffect, useRef } from 'react'
+import animationJSON from '../lotties/inhale.json'
 import BreathText from './BreathText';
-import './Fish.css'
+import './BreatheGuy.css'
 import ControlButtons from '../ControlButtons';
 
-
-const Fish = () => {
+const BreatheGuy = () => {
     const [duration, setDuration] = useState(50)
     const [toggle, setToggle] = useState('off')
     const [frame, setFrame] = useState(0)
@@ -16,7 +15,7 @@ const Fish = () => {
     const animation = useRef();
 
     const toggleAnimation = () => {
-        let breathText = document.querySelector('.fish-breath')
+        let breathText = document.querySelector('.guy-breath')
         console.log(duration)
         if (toggle == 'off') {
             setToggle('on')
@@ -34,7 +33,7 @@ const Fish = () => {
     }
 
     const cutAnimation = () => { 
-        let breathText = document.querySelector('.fish-breath')
+        let breathText = document.querySelector('.guy-breath')
         breathText.style.animation = ''
 
     }
@@ -66,7 +65,7 @@ const Fish = () => {
             <Player
                 key={duration}
                 ref={animation}
-                className='fish-container'
+                className='guy-container'
                 autoplay={false}
                 loop={duration}
                 src={animationJSON}
@@ -84,18 +83,18 @@ const Fish = () => {
                         setFrame(Math.round(newFrame))
                         console.log(frame)
                     } 
-                    if (frame === 1) {
-                        let breathText = document.querySelector('.fish-breath')
+                    if (frame === 2) {
+                        let breathText = document.querySelector('.guy-breath')
                         breathText.style.animation = 'fade 3s 1 ease-in-out'
-                        setTimeout(cutAnimation, 2750)
+                        setTimeout(cutAnimation, 2500)
                         let inhale = 'Inhale'
                         setBreath(inhale)
                         console.log('1st frame')
                     }
                     if (frame === halfway) {
-                        let breathText = document.querySelector('.fish-breath')
+                        let breathText = document.querySelector('.guy-breath')
                         breathText.style.animation = 'fade 3s 1 ease-in-out'
-                        setTimeout(cutAnimation, 2750)
+                        setTimeout(cutAnimation, 2500)
                         let exhale = 'Exhale'
                         setBreath(exhale)
                         console.log('half-way')
@@ -112,7 +111,7 @@ const Fish = () => {
                 
                 <Controls visible={true} buttons={['play', 'repeat', 'frame', 'debug']} />
             </Player>
-            {breath == 'Inhale' ? <p className='fish-breath'>{breath}</p> :<p className='fish-breath'>{breath}</p> }
+            {breath == 'Inhale' ? <p className='guy-breath'>{breath}</p> :<p className='guy-breath'>{breath}</p> }
             <ControlButtons {...{duration, breath, toggleAnimation, updateDuration}}/>    
 
 
@@ -120,4 +119,4 @@ const Fish = () => {
     );
 }
 
-export default Fish;
+export default BreatheGuy;

@@ -5,16 +5,17 @@ import AudioVisualizer from './AudioVisualizer';
 import Seagull from './visual_components/Seagull';
 import Fish from './visual_components/Fish'
 import Swing from './visual_components/Swing'
+import BreatheGuy from './visual_components/BreatheGuy';
 import eye from './images/eye.png'
 import BreathText from './visual_components/BreathText';
 import VisualChooser from './VisualChooser';
 import { useState } from 'react';
 
 
-let animations = [<HeartShape />, <Seagull name='seagull'/>, <Fish />, <Swing />]
+let animations = [<HeartShape />, <Seagull name='seagull'/>, <Fish />, <Swing />, <BreatheGuy />]
 
 function App() {
-  const [animation, setAnimation] = useState(animations[0])
+  const [animation, setAnimation] = useState(animations[4])
   return (
     <div className="App">
       <div className='page-title'>
