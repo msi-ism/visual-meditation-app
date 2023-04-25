@@ -9,7 +9,7 @@ import ControlButtons from '../ControlButtons';
 const Swing = () => {
     let nextBreath = ''
     const [toggle, setToggle] = useState('off')
-    const [breath, setBreath] = useState('not breathing')
+    const [breath, setBreath] = useState("")
     const [timer, setTimer] = useState('')
     const [duration, setDuration] = useState(50)
     const [count, setCount] = useState(0)

@@ -11,7 +11,7 @@ let breathCount = 0
 const HeartShape = () => {
     let nextBreath = ''
     const [toggle, setToggle] = useState('off')
-    const [breath, setBreath] = useState("Click 'play' to begin meditation")
+    const [breath, setBreath] = useState('')
     const [timer, setTimer] = useState('')
     const [duration, setDuration] = useState(50)
     const [count, setCount] = useState(0)

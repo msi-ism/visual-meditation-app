@@ -69,7 +69,7 @@ const BreatheGuy = () => {
                 autoplay={false}
                 loop={duration}
                 src={animationJSON}
-                style={{ height: '400px', width: '400px' }}
+                style={{ height: '425px', width: '375px', padding: '0px' }}
                 onEvent={event => {
                     let totalFrames = window.lottie.getRegisteredAnimations()[0].totalFrames
                     let halfway = Math.round(totalFrames/2)
@@ -109,7 +109,7 @@ const BreatheGuy = () => {
                 }}
             >
                 
-                <Controls visible={true} buttons={['play', 'repeat', 'frame', 'debug']} />
+                <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
             </Player>
             {breath == 'Inhale' ? <p className='guy-breath'>{breath}</p> :<p className='guy-breath'>{breath}</p> }
             <ControlButtons {...{duration, breath, toggleAnimation, updateDuration}}/>    

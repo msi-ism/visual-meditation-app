@@ -6,6 +6,10 @@
     margin-top: 20px
 }
 
+.play-text {
+    font-size: 18px;
+}
+
 
 .control-btns > .play-btn {
     display: flex;

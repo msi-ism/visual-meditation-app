@@ -110,7 +110,7 @@ const Fish = () => {
                 }}
             >
                 
-                <Controls visible={true} buttons={['play', 'repeat', 'frame', 'debug']} />
+                <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
             </Player>
             {breath == 'Inhale' ? <p className='fish-breath'>{breath}</p> :<p className='fish-breath'>{breath}</p> }
             <ControlButtons {...{duration, breath, toggleAnimation, updateDuration}}/>    

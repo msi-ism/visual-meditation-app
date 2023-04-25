@@ -1,14 +1,31 @@
+.choice-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    margin: 0px;
+}
+
+.choice-div > .anchor-text {
+    margin-top: 0px;
+}
+
+
 .choice-holder {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: auto;
-    height: 100%;
-    margin: 10px;
-    padding: 0;
+    width: 75%;
+    height: auto;
+    padding: 25px;
     align-items: center;
     justify-content: center;
+    background-color:  rgb(158, 89, 89, .1);
+    border-radius: 5%;
+    gap: 0px;
+    margin: 0px;
 }
+
 
 .choice-holder > .choice {
     max-height: 120px;

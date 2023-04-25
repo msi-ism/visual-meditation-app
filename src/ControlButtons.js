@@ -17,6 +17,7 @@ const ControlButtons = ({toggleAnimation, updateDuration, duration, breath}) => 
 
     return (
         <div className='control-btns'>
+            <p className='play-text'>Choose your anchor & duration & then click 'play' to begin your meditation.</p>
         <div className='duration-row'>
             <button className='db' id='10' onClick={updateDuration}>1min</button>
             <button className='db active-btn' id='50' onClick={updateDuration}>5min</button>

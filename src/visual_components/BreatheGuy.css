@@ -1,7 +1,9 @@
 .guy-container {
-    border: 4px solid rgb(69, 160, 183);
-    border-radius: 20%;
+    border: 10px solid rgb(213, 145, 62);
     position: relative;
+    padding: 0;
+    margin: 0;
+    padding-bottom: -10px;
 
    
 }
