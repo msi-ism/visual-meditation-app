@@ -17,7 +17,13 @@ const ControlButtons = ({toggleAnimation, updateDuration, duration, durationDisp
     const durationReminder = () => {
         let text = document.querySelector('.duration-reminder')
         text.style.animation =  'blinker 1s linear 2'
+        setTimeout(reset, 2000)
 
+    }
+
+    const reset = () => {
+        let text = document.querySelector('.duration-reminder')
+        text.style.animation =  ''
     }
 
 

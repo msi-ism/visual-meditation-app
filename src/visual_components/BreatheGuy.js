@@ -14,37 +14,45 @@ const BreatheGuy = () => {
     const [breath, setBreath] = useState('Not Breathing')
     const [demoCounter, setDemoCounter] = useState(0)
     const [durationDisplay, setDurationDisplay] = useState(null)
+    const [counter, setCounter] = useState(3);
+    const [timer, setTimer] = useState()
     const animation = useRef();
 
-    // const checkDuration = () => {
-    //     if (duration == 'false') {
-    //             setDuration(50)
-    //     } else {
-    //         setDuration(duration)
-    //     }
-    // }
+
+    const countdown = () => {
+        setTimer(setInterval(() => setCounter(counter => counter - 1), 1000))
+    }
+
+    const clearCountdown = () => {
+        clearInterval(timer)
+        setTimer(null)
+        console.log('timer cleared')
+    }
 
     const toggleAnimation = () => {
         let breathText = document.querySelector('.guy-breath')
         console.log(duration)
-        if (duration !== 'false') {
-        if (toggle == 'off') {
-            setToggle('on')
-            console.log(toggle)
-            animation.current.play()
-            console.log('animation should be playing')
-            // breathText.style.animation = 'fade 3s 1 ease-in-out'
+        countdown()
+        // setTimeout(clearCountdown, 3100)
+        setTimeout(() => {
+            if (duration !== 'false') {
+                if (toggle == 'off') {
+                    setToggle('on')
+                    console.log(toggle)
+                    animation.current.play()
+                    console.log('animation should be playing')
+                    // breathText.style.animation = 'fade 3s 1 ease-in-out'
 
-        } else if (toggle == 'on') {
-            animation.current.stop()
-            breathText.style.animation = ''
-            setToggle('off')
-            console.log(toggle)
-        }
-    } else {
-         console.log('no duration selected')
-    }
-        
+                } else if (toggle == 'on') {
+                    animation.current.stop()
+                    breathText.style.animation = ''
+                    setToggle('off')
+                    console.log(toggle)
+                }
+            } else {
+                console.log('no duration selected')
+            }
+        }, 3200)
     }
 
     const cutAnimation = () => {
@@ -82,6 +90,14 @@ const BreatheGuy = () => {
         }
     }
 
+    const completeMessage = () => {
+        let breathText = document.querySelector('.guy-breath')
+        setBreath('Meditation Complete')
+        breathText.style.animation = 'fade 5s 1 ease-in-out'
+    }
+
+
+
 
 
 
@@ -89,6 +105,7 @@ const BreatheGuy = () => {
         console.log(duration)
         console.log(demoCounter)
         console.log(toggle)
+
 
     }, [duration]);
 
@@ -121,6 +138,7 @@ const BreatheGuy = () => {
                     if (frame === 2 && toggle == 'on') {
                         let breathText = document.querySelector('.guy-breath')
                         breathText.style.animation = 'fade 3s 1 ease-in-out'
+                        clearCountdown()
                         setTimeout(cutAnimation, 2500)
                         let inhale = 'Inhale'
                         setBreath(inhale)
@@ -143,6 +161,9 @@ const BreatheGuy = () => {
                         setBreathCount(currentBreath)
                         setDurationDisplay(currentDuration)
                     }
+                    if (demoCounter > 1 && event === 'complete') {
+                        completeMessage()
+                    }
                 }}
             >
 
@@ -150,6 +171,9 @@ const BreatheGuy = () => {
             </Player>
             {breath == 'Inhale' ? <p className='guy-breath'>{breath}</p> : <p className='guy-breath'>{breath}</p>}
             <ControlButtons {...{ duration, breath, toggleAnimation, updateDuration, durationDisplay }} />
+            {counter}
+            <button onClick={countdown}>Countdown</button>
+            <button onClick={clearCountdown}>Stop Count</button>
         </div>
     );
 }
