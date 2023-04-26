@@ -11,21 +11,31 @@ const BreatheGuy = () => {
     const [toggle, setToggle] = useState('off')
     const [frame, setFrame] = useState(0)
     const [breathCount, setBreathCount] = useState(0)
-    const [breath, setBreath] = useState('Not Breathing')
+    const [counter, setCounter] = useState(4);
+    const [breath, setBreath] = useState(counter)
     const [demoCounter, setDemoCounter] = useState(0)
     const [durationDisplay, setDurationDisplay] = useState(null)
-    const [counter, setCounter] = useState(3);
     const [timer, setTimer] = useState()
     const animation = useRef();
 
 
     const countdown = () => {
-        setTimer(setInterval(() => setCounter(counter => counter - 1), 1000))
+        let countText = document.querySelector('.countdown')
+        setTimer(setInterval(() => {
+            // countText.style.animation = 'fade 100ms 1 ease'
+            countText.style.display = 'block'
+            setCounter(counter => counter - 1)
+            // setBreath(counter)
+        }, 1000))
+
+
     }
 
     const clearCountdown = () => {
+        let countText = document.querySelector('.countdown')
         clearInterval(timer)
         setTimer(null)
+        countText.style.display = 'none'
         console.log('timer cleared')
     }
 
@@ -161,7 +171,7 @@ const BreatheGuy = () => {
                         setBreathCount(currentBreath)
                         setDurationDisplay(currentDuration)
                     }
-                    if (demoCounter > 1 && event === 'complete') {
+                    if (demoCounter >= 1 && event === 'complete') {
                         completeMessage()
                     }
                 }}
@@ -171,7 +181,7 @@ const BreatheGuy = () => {
             </Player>
             {breath == 'Inhale' ? <p className='guy-breath'>{breath}</p> : <p className='guy-breath'>{breath}</p>}
             <ControlButtons {...{ duration, breath, toggleAnimation, updateDuration, durationDisplay }} />
-            {counter}
+            <p className='countdown'>{counter}</p>
             <button onClick={countdown}>Countdown</button>
             <button onClick={clearCountdown}>Stop Count</button>
         </div>
