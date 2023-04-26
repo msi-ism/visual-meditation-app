@@ -5,7 +5,7 @@ import start from './images/start.png'
 import nostart from './images/nostart.png'
 import stop from './images/stop.png'
 
-const ControlButtons = ({ toggleAnimation, updateDuration, duration, durationDisplay, toggle, stopAnimation }) => {
+const ControlButtons = ({ toggleAnimation, updateDuration, duration, durationDisplay, toggle }) => {
     const [playButton, setPlayButton] = useState(start)
 
     // const handleClick = (evt) => {
