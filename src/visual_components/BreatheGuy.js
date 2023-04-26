@@ -36,8 +36,9 @@ const BreatheGuy = () => {
         let countText = document.querySelector('.countdown')
         clearInterval(timer)
         setTimer(null)
+        setCounter(3)
         countText.style.display = 'none'
-        console.log('timer cleared')
+
     }
 
     const toggleAnimation = () => {
@@ -51,14 +52,12 @@ const BreatheGuy = () => {
                 setToggle('on')
                 console.log(toggle)
                 animation.current.play()
-                console.log('animation should be playing')
             }, 2900)
         } else {
             animation.current.stop()
             breathText.style.animation = ''
             clearCountdown()
             setToggle('off')
-            console.log(toggle)
         }
     }
 
@@ -70,7 +69,6 @@ const BreatheGuy = () => {
             breathText.style.animation = ''
             clearCountdown()
             setToggle('off')
-            console.log(toggle)
         }
 
     }
@@ -184,9 +182,12 @@ const BreatheGuy = () => {
                         let currentDuration = durationDisplay => durationDisplay - 1
                         setBreathCount(currentBreath)
                         setDurationDisplay(currentDuration)
+                        
                     }
                     if (duration !== 'false' && event === 'complete') {
                         completeMessage()
+                        setToggle('off')
+                        setDuration('false')
                     }
                 }}
             >
