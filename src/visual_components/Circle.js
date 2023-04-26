@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Player, Controls } from '@lottiefiles/react-lottie-player'
-import {useState, useEffect, useRef} from 'react'
-import animationJSON from '../lotties/flower_drawing.json'
-import './Flower.css'
+import { useRef } from 'react'
+import animationJSON from '../lotties/pales_circles.json'
+import BreathText from './BreathText';
+import './Circle.css'
 import ControlButtons from '../ControlButtons';
 
 
-const Flower = () => {
+const Circle = () => {
     const [duration, setDuration] = useState('false')
     // ^ Controls the state of the animations
     const [toggle, setToggle] = useState('off')
@@ -29,7 +30,7 @@ const Flower = () => {
 
     // ^ Countdown to meditation timer
     const countdown = () => {
-        let countText = document.querySelector('.countdown-flower')
+        let countText = document.querySelector('.countdown-circle')
         setCounter(counter)
         countText.style.display = 'block'
         if (toggle)
@@ -43,7 +44,7 @@ const Flower = () => {
 
     // ^ Clears countdown to meditation timer
     const clearCountdown = () => {
-        let countText = document.querySelector('.countdown-flower')
+        let countText = document.querySelector('.countdown-circle')
         clearInterval(timer)
         setTimer(null)
         setCounter(3)
@@ -52,7 +53,7 @@ const Flower = () => {
     }
     // ^ Starts and stops animation on click
     const toggleAnimation = () => {
-        let breathText = document.querySelector('.flower-breath')
+        let breathText = document.querySelector('.circle-breath')
         let playButton = document.querySelector('.play-btn')
         playButton.style.animation = ''
         console.log(duration)
@@ -61,8 +62,8 @@ const Flower = () => {
             setTimeout(() => {
                 setToggle('on')
                 console.log(toggle)
-                animation.current.play(60, 200)
-            }, 2700)
+                animation.current.play()
+            }, 2800)
         } else {
             animation.current.stop()
             breathText.style.animation = ''
@@ -73,7 +74,7 @@ const Flower = () => {
 
   // ^ Stops the CSS animation on breath instructions so that it can be triggered again at next interval
     const cutAnimation = () => {
-        let breathText = document.querySelector('.flower-breath')
+        let breathText = document.querySelector('.circle-breath')
         breathText.style.animation = ''
 
     }
@@ -107,7 +108,7 @@ const Flower = () => {
 
   // ^ Message that plays once animation is complete
     const completeMessage = () => {
-        let breathText = document.querySelector('.flower-breath')
+        let breathText = document.querySelector('.circle-breath')
         setBreath('Complete.')
         breathText.style.animation = 'fade 3s 1 ease-in-out'
         setTimeout(() => {
@@ -132,42 +133,44 @@ const Flower = () => {
             <Player
                 key={duration}
                 ref={animation}
-                className='flower-container'
+                className='circle-container'
                 autoplay={false}
                 loop={duration}
                 src={animationJSON}
-                initialSegment={[60, 201]}
-                style={{ height: '450px', width: '500px', padding: '0px', background: 'black' }}
+                style={{ height: '400px', width: '400px', padding: '0px' }}
                 onEvent={event => {
                     // ^ Grabbing total frames in animation from lottie object
                     let totalFrames = window.lottie.getRegisteredAnimations()[0].totalFrames
                     // ^ Finding mid point in animation to switch breath text
-                    let halfway = Math.round(totalFrames / 2)
+                    let halfway = Math.round(totalFrames / 2) + 3
                     // ^ On load, play demo
                     if (event === 'load') {
                         console.log('lottie loaded')
                         playDemo()
+                        console.log(halfway)
+                        console.log(window.lottie.getRegisteredAnimations()[0])
                     }
                     // ^ Uses lottie's built in frame event to calculate the current frame, rounded to the nearest whole number
                     if (event === 'frame') {
                         let newFrame = window.lottie.getRegisteredAnimations()[0].currentFrame
                         setFrame(Math.round(newFrame))
+                        console.log(frame)
                     }
                      // ^ Starts breath text animation with inhale and clears timer for meditation countdown
-                    if (frame === 2 && toggle == 'on') {
-                        let breathText = document.querySelector('.flower-breath')
+                    if (frame === 1 && toggle == 'on') {
+                        let breathText = document.querySelector('.circle-breath')
                         breathText.style.animation = 'fade 3s 1 ease-in-out'
                         clearCountdown()
-                        setTimeout(cutAnimation, 2500)
+                        setTimeout(cutAnimation, 2800)
                         let inhale = 'Inhale'
                         setBreath(inhale)
                         console.log('1st frame')
                     }
                     // ^ switches breath text animation to 'exhale' at midpoint of animation
                     if (frame === halfway && toggle == 'on') {
-                        let breathText = document.querySelector('.flower-breath')
+                        let breathText = document.querySelector('.circle-breath')
                         breathText.style.animation = 'fade 3s 1 ease-in-out'
-                        setTimeout(cutAnimation, 2500)
+                        setTimeout(cutAnimation, 2600)
                         let exhale = 'Exhale'
                         setBreath(exhale)
                         console.log('half-way')
@@ -182,7 +185,7 @@ const Flower = () => {
                         setDurationDisplay(currentDuration)
                         
                     }
-                    // ^ when animation finishes entirerly, please complete message and reset duration
+                    // ^ when animation finishes entirely, please complete message and reset duration
                     if (duration !== 'false' && event === 'complete') {
                         completeMessage()
                         setToggle('off')
@@ -192,11 +195,11 @@ const Flower = () => {
             >
                 <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
             </Player>
-            {breath == 'Inhale' ? <p className='flower-breath'>{breath}</p> : <p className='flower-breath'>{breath}</p>}
+            {breath == 'Inhale' ? <p className='circle-breath'>{breath}</p> : <p className='circle-breath'>{breath}</p>}
             <ControlButtons {...{ duration, breath, toggle, toggleAnimation, updateDuration, durationDisplay }} />
-            <p className='countdown-flower'>{counter}</p>
+            <p className='countdown-circle'>{counter}</p>
         </div>
     );
 }
 
-export default Flower;
+export default Circle;

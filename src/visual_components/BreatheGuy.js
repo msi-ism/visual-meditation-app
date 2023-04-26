@@ -151,6 +151,7 @@ const BreatheGuy = () => {
                     if (event === 'frame') {
                         let newFrame = window.lottie.getRegisteredAnimations()[0].currentFrame
                         setFrame(Math.round(newFrame))
+                        console.log(frame)
                     }
                      // ^ Starts breath text animation with inhale and clears timer for meditation countdown
                     if (frame === 2 && toggle == 'on') {
