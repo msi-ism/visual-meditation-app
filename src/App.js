@@ -33,10 +33,11 @@ const hideDistractions = () => {
 
 
 let animations = [<BreatheGuy hideDistractions={hideDistractions} />,
-<MeditationPeeps />,
-<Seagull />,
-<Fish />, <Sun />,
-<Circle />,
+<MeditationPeeps hideDistractions={hideDistractions}/>,
+<Seagull hideDistractions={hideDistractions}/>,
+<Fish hideDistractions={hideDistractions}/>, 
+<Sun hideDistractions={hideDistractions}/>,
+<Circle hideDistractions={hideDistractions}/>,
 <Swing />,
 <HeartShape />]
 

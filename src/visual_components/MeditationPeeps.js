@@ -6,7 +6,7 @@ import BreathText from './BreathText';
 import './MeditationPeeps.css'
 import ControlButtons from '../ControlButtons';
 
-const MeditationPeeps = () => {
+const MeditationPeeps = ({hideDistractions}) => {
        const [duration, setDuration] = useState('false')
     // ^ Controls the state of the animations
     const [toggle, setToggle] = useState('off')
@@ -29,7 +29,8 @@ const MeditationPeeps = () => {
 
     // ^ Countdown to meditation timer
     const countdown = () => {
-        let countText = document.querySelector('.countdown')
+        let countText = document.querySelector('.countdown-med')
+        hideDistractions()
         setCounter(counter)
         countText.style.display = 'block'
         if (toggle)
@@ -43,7 +44,7 @@ const MeditationPeeps = () => {
 
     // ^ Clears countdown to meditation timer
     const clearCountdown = () => {
-        let countText = document.querySelector('.countdown')
+        let countText = document.querySelector('.countdown-med')
         clearInterval(timer)
         setTimer(null)
         setCounter(3)
@@ -66,6 +67,8 @@ const MeditationPeeps = () => {
         } else {
             animation.current.stop()
             breathText.style.animation = ''
+            hideDistractions()
+            setDuration(durationDisplay)
             clearCountdown()
             setToggle('off')
         }
@@ -186,6 +189,7 @@ const MeditationPeeps = () => {
                         completeMessage()
                         setToggle('off')
                         setDuration('false')
+                        setTimeout(hideDistractions, 3750)
                     }
                 }}
             >
@@ -193,7 +197,7 @@ const MeditationPeeps = () => {
             </Player>
             {breath == 'Inhale' ? <p className='med-breath'>{breath}</p> : <p className='med-breath'>{breath}</p>}
             <ControlButtons {...{ duration, breath, toggle, toggleAnimation, updateDuration, durationDisplay }} />
-            <p className='countdown'>{counter}</p>
+            <p className='countdown-med'>{counter}</p>
         </div>
     );
 }

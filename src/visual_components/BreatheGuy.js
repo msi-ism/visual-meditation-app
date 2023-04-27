@@ -29,7 +29,7 @@ const BreatheGuy = ({hideDistractions}) => {
 
     // ^ Countdown to meditation timer
     const countdown = () => {
-        let countText = document.querySelector('.countdown')
+        let countText = document.querySelector('.countdown-guy')
         hideDistractions()
         setCounter(counter)
         countText.style.display = 'block'
@@ -44,7 +44,7 @@ const BreatheGuy = ({hideDistractions}) => {
 
     // ^ Clears countdown to meditation timer
     const clearCountdown = () => {
-        let countText = document.querySelector('.countdown')
+        let countText = document.querySelector('.countdown-guy')
         clearInterval(timer)
         setTimer(null)
         setCounter(3)
@@ -68,8 +68,8 @@ const BreatheGuy = ({hideDistractions}) => {
             animation.current.stop()
             breathText.style.animation = ''
             hideDistractions()
-            setToggle('off')
             setDuration(durationDisplay)
+            setToggle('off')
         }
     }
 
@@ -140,7 +140,7 @@ const BreatheGuy = ({hideDistractions}) => {
                 autoplay={false}
                 loop={duration}
                 src={animationJSON}
-                style={{ height: '400px', width: '350px', padding: '0px' }}
+                style={{ height: '400px', width: '350px'}}
                 onEvent={event => {
                     // ^ Grabbing total frames in animation from lottie object
                     let totalFrames = window.lottie.getRegisteredAnimations()[0].totalFrames
@@ -200,7 +200,7 @@ const BreatheGuy = ({hideDistractions}) => {
             </Player>
             {breath == 'Inhale' ? <p className='guy-breath'>{breath}</p> : <p className='guy-breath'>{breath}</p>}
             <ControlButtons {...{ duration, breath, toggle, toggleAnimation, updateDuration, durationDisplay }} />
-            <p className='countdown'>{counter}</p>
+            <p className='countdown-guy'>{counter}</p>
         </div>
     );
 }

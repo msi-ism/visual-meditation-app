@@ -6,7 +6,7 @@ import './Sun.css'
 import ControlButtons from '../ControlButtons';
 
 
-const Sun = () => {
+const Sun = ({hideDistractions}) => {
     const [duration, setDuration] = useState('false')
     // ^ Controls the state of the animations
     const [toggle, setToggle] = useState('off')
@@ -30,6 +30,7 @@ const Sun = () => {
     // ^ Countdown to meditation timer
     const countdown = () => {
         let countText = document.querySelector('.countdown-sun')
+        hideDistractions()
         setCounter(counter)
         countText.style.display = 'block'
         if (toggle)
@@ -66,6 +67,8 @@ const Sun = () => {
         } else {
             animation.current.stop()
             breathText.style.animation = ''
+            hideDistractions()
+            setDuration(durationDisplay)
             clearCountdown()
             setToggle('off')
         }
@@ -187,6 +190,7 @@ const Sun = () => {
                         completeMessage()
                         setToggle('off')
                         setDuration('false')
+                        setTimeout(hideDistractions, 3750)
                     }
                 }}
             >

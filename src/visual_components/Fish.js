@@ -7,7 +7,7 @@ import './Fish.css'
 import ControlButtons from '../ControlButtons';
 
 
-const Fish = () => {
+const Fish = ({hideDistractions}) => {
     const [duration, setDuration] = useState('false')
     // ^ Controls the state of the animations
     const [toggle, setToggle] = useState('off')
@@ -30,7 +30,8 @@ const Fish = () => {
 
     // ^ Countdown to meditation timer
     const countdown = () => {
-        let countText = document.querySelector('.countdown')
+        let countText = document.querySelector('.countdown-fish')
+        hideDistractions()
         setCounter(counter)
         countText.style.display = 'block'
         if (toggle)
@@ -44,7 +45,7 @@ const Fish = () => {
 
     // ^ Clears countdown to meditation timer
     const clearCountdown = () => {
-        let countText = document.querySelector('.countdown')
+        let countText = document.querySelector('.countdown-fish')
         clearInterval(timer)
         setTimer(null)
         setCounter(3)
@@ -67,6 +68,8 @@ const Fish = () => {
         } else {
             animation.current.stop()
             breathText.style.animation = ''
+            hideDistractions()
+            setDuration(durationDisplay)
             clearCountdown()
             setToggle('off')
         }
@@ -187,6 +190,7 @@ const Fish = () => {
                         completeMessage()
                         setToggle('off')
                         setDuration('false')
+                        setTimeout(hideDistractions, 3750)
                     }
                 }}
             >
@@ -194,7 +198,7 @@ const Fish = () => {
             </Player>
             {breath == 'Inhale' ? <p className='fish-breath'>{breath}</p> : <p className='fish-breath'>{breath}</p>}
             <ControlButtons {...{ duration, breath, toggle, toggleAnimation, updateDuration, durationDisplay }} />
-            <p className='countdown'>{counter}</p>
+            <p className='countdown-fish'>{counter}</p>
         </div>
     );
 }

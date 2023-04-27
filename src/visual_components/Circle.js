@@ -7,7 +7,7 @@ import './Circle.css'
 import ControlButtons from '../ControlButtons';
 
 
-const Circle = () => {
+const Circle = ({hideDistractions}) => {
     const [duration, setDuration] = useState('false')
     // ^ Controls the state of the animations
     const [toggle, setToggle] = useState('off')
@@ -31,6 +31,7 @@ const Circle = () => {
     // ^ Countdown to meditation timer
     const countdown = () => {
         let countText = document.querySelector('.countdown-circle')
+        hideDistractions()
         setCounter(counter)
         countText.style.display = 'block'
         if (toggle)
@@ -67,6 +68,8 @@ const Circle = () => {
         } else {
             animation.current.stop()
             breathText.style.animation = ''
+            hideDistractions()
+            setDuration(durationDisplay)
             clearCountdown()
             setToggle('off')
         }
@@ -190,6 +193,7 @@ const Circle = () => {
                         completeMessage()
                         setToggle('off')
                         setDuration('false')
+                        setTimeout(hideDistractions, 3750)
                     }
                 }}
             >

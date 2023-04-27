@@ -6,7 +6,7 @@ import './Seagull.css'
 import ControlButtons from '../ControlButtons';
 
 
-const Seagull = () => {
+const Seagull = ({hideDistractions}) => {
     const [duration, setDuration] = useState('false')
     // ^ Controls the state of the animations
     const [toggle, setToggle] = useState('off')
@@ -29,7 +29,8 @@ const Seagull = () => {
 
     // ^ Countdown to meditation timer
     const countdown = () => {
-        let countText = document.querySelector('.countdown')
+        let countText = document.querySelector('.countdown-sea')
+        hideDistractions()
         setCounter(counter)
         countText.style.display = 'block'
         if (toggle)
@@ -43,7 +44,7 @@ const Seagull = () => {
 
     // ^ Clears countdown to meditation timer
     const clearCountdown = () => {
-        let countText = document.querySelector('.countdown')
+        let countText = document.querySelector('.countdown-sea')
         clearInterval(timer)
         setTimer(null)
         setCounter(3)
@@ -66,6 +67,8 @@ const Seagull = () => {
         } else {
             animation.current.stop()
             breathText.style.animation = ''
+            hideDistractions()
+            setDuration(durationDisplay)
             clearCountdown()
             setToggle('off')
         }
@@ -186,6 +189,8 @@ const Seagull = () => {
                         completeMessage()
                         setToggle('off')
                         setDuration('false')
+                        setTimeout(hideDistractions, 3750)
+                        
                     }
                 }}
             >
@@ -193,7 +198,7 @@ const Seagull = () => {
             </Player>
             {breath == 'Inhale' ? <p className='sea-breath'>{breath}</p> : <p className='sea-breath'>{breath}</p>}
             <ControlButtons {...{ duration, breath, toggle, toggleAnimation, updateDuration, durationDisplay }} />
-            <p className='countdown'>{counter}</p>
+            <p className='countdown-sea'>{counter}</p>
         </div>
     );
 }

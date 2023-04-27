@@ -1,5 +1,5 @@
 .sun-breath {
-    font-size: 34px;
+    font-size: 30px;
     position: absolute;
     top: 325px;
     left: 0;
@@ -11,7 +11,7 @@
 }
 
 .countdown-sun {
-    font-size: 32px;
+    font-size: 30px;
     position: absolute;
     top: 325px;
     left: 0;
@@ -35,4 +35,35 @@
 @keyframes fade {
     0%, 100% { opacity: 0 }
     33% { opacity: 1 }
+  }
+
+  @media only screen and (max-width: 900px) {
+    .sun-container {
+        width: auto !important;
+        height: 350px !important;
+    }
+
+    .sun-breath {
+        font-size: 28px;
+        position: absolute;
+        top: 315px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        opacity: 0;
+        animation: '';
+    
+    }
+    
+    .countdown-sun {
+        font-size: 28px;
+        position: absolute;
+        top: 315px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        opacity: 1;
+        display: none;
+    
+    }
   }

@@ -58,3 +58,33 @@
 
   
 }
+
+@media only screen and (max-width: 900px) {
+.choice-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0px;
+        margin: 0px;
+        margin-top: 20px;
+        width: 100%;
+        height: auto;
+}
+
+.choice-holder {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    height: auto;
+    width: 99vw;
+    margin-top: 25px;
+    box-shadow: inset 0 10px 20px 'black';
+    background-color:  rgb(158, 89, 89, .1);
+    border-radius: 5%;
+    gap: 0px;
+    margin: 0px;
+}
+    
+  }

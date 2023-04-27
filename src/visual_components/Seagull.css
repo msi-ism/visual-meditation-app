@@ -28,3 +28,51 @@
     33% { opacity: 1 }
   }
 
+.countdown-sea {
+    font-size: 36px;
+    position: absolute;
+    top: 165px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    opacity: 1;
+    color: white;
+    animation: '';
+    display: none;
+
+
+}
+
+@media only screen and (max-width: 900px) {
+    .sea-container {
+        width: auto !important;
+        height: 350px !important;
+    }
+
+    .sea-breath {
+        font-size: 36px;
+        position: absolute;
+        top: 210px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        opacity: 0;
+        animation: '';
+    }
+    
+    
+    
+    .countdown-sea {
+        font-size: 36px;
+        position: absolute;
+        top: 210px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        opacity: 1;
+        color: black;
+        animation: '';
+        display: none;
+    
+    }
+  }
