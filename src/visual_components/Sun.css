@@ -1,31 +1,28 @@
-.flower-breath {
-    font-size: 36px;
+.sun-breath {
+    font-size: 34px;
     position: absolute;
-    top: 150px;
+    top: 325px;
     left: 0;
     right: 0;
     margin: 0 auto;
     opacity: 0;
     animation: '';
-    color: white;
+
 }
 
-.countdown-flower {
-    font-size: 36px;
+.countdown-sun {
+    font-size: 32px;
     position: absolute;
-    top: 150px;
+    top: 325px;
     left: 0;
     right: 0;
     margin: 0 auto;
     opacity: 1;
-    animation: '';
-    color: white;
     display: none;
 
 }
 
-
-.flower-container {
+.sun-container {
     position: relative;
 
    
@@ -39,4 +36,3 @@
     0%, 100% { opacity: 0 }
     33% { opacity: 1 }
   }
-
