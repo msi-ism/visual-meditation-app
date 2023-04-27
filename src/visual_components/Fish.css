@@ -48,13 +48,14 @@
   @media only screen and (max-width: 900px) {
     .fish-container {
         width: auto !important;
-        height: 350px !important;
+        height: 320px !important;
+        position: relative;
     }
 
     .fish-breath {
         font-size: 36px;
         position: absolute;
-        top: 210px;
+        top: 170px;
         left: 0;
         right: 0;
         margin: 0 auto;
@@ -67,7 +68,7 @@
     .countdown-fish {
         font-size: 36px;
         position: absolute;
-        top: 210px;
+        top: 170px;
         left: 0;
         right: 0;
         margin: 0 auto;

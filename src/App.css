@@ -80,6 +80,8 @@
   transition: visibility 0s 2s, opacity 2s linear;
 }
 
+
+
 .choice-container {
   grid-column-start: 1;
   width: 100%;
@@ -153,10 +155,11 @@
     justify-content: center;
     text-align: center;
     align-items: center;
+    margin-bottom: 25px;
+    height: 100%;
     width: auto;
-    height: auto;
-    width: 100vw;
     overflow-x: hidden;
+    overflow-y: hidden;
   }
 
   .App > .choice-container {
@@ -166,7 +169,7 @@
     height: 100%;
     display: flex;
     justify-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     overflow-x: hidden;
     transition: visibility 2s 0s, opacity 1s linear;
   }
@@ -183,6 +186,12 @@
     height: 100%;
     overflow-x: hidden;
     transition: visibility 2s 0s, opacity 1s linear;
+  }
+
+  .hidden {
+    display: none;
+    opacity: 0;
+    transition: display 0s 2s, opacity 2s linear;
   }
   
   
