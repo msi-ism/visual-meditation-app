@@ -1,0 +1,19 @@
+.details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+
+.details-box {
+    background-color: beige;
+    width: 75%;
+    height: auto;
+    padding: 15px;
+    border-radius: 5%;
+}
+

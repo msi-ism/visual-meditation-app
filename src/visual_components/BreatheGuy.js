@@ -6,7 +6,7 @@ import BreathText from './BreathText';
 import './BreatheGuy.css'
 import ControlButtons from '../ControlButtons';
 
-const BreatheGuy = () => {
+const BreatheGuy = ({hideDistractions}) => {
     const [duration, setDuration] = useState('false')
     // ^ Controls the state of the animations
     const [toggle, setToggle] = useState('off')
@@ -30,6 +30,7 @@ const BreatheGuy = () => {
     // ^ Countdown to meditation timer
     const countdown = () => {
         let countText = document.querySelector('.countdown')
+        hideDistractions()
         setCounter(counter)
         countText.style.display = 'block'
         if (toggle)
@@ -66,8 +67,9 @@ const BreatheGuy = () => {
         } else {
             animation.current.stop()
             breathText.style.animation = ''
-            clearCountdown()
+            hideDistractions()
             setToggle('off')
+            setDuration(durationDisplay)
         }
     }
 
@@ -123,6 +125,8 @@ const BreatheGuy = () => {
   // ^ Used to re-render animation component when duration is changed to give live value
     useEffect(() => {
 
+        console.log(duration)
+
     }, [duration]);
 
 
@@ -151,7 +155,7 @@ const BreatheGuy = () => {
                     if (event === 'frame') {
                         let newFrame = window.lottie.getRegisteredAnimations()[0].currentFrame
                         setFrame(Math.round(newFrame))
-                        console.log(frame)
+
                     }
                      // ^ Starts breath text animation with inhale and clears timer for meditation countdown
                     if (frame === 2 && toggle == 'on') {
@@ -180,6 +184,7 @@ const BreatheGuy = () => {
                         let currentDuration = durationDisplay => durationDisplay - 1
                         setBreathCount(currentBreath)
                         setDurationDisplay(currentDuration)
+                        console.log(duration)
                         
                     }
                     // ^ when animation finishes entirerly, please complete message and reset duration
@@ -187,6 +192,7 @@ const BreatheGuy = () => {
                         completeMessage()
                         setToggle('off')
                         setDuration('false')
+                        setTimeout(hideDistractions, 3750)
                     }
                 }}
             >

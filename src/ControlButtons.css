@@ -47,11 +47,18 @@
 
 }
 
+.duration-row {
+    margin-top: 10px;
+}
+
 .duration-row > .db {
     border: 2px solid black;
     font-family: 'Schibsted Grotesk', sans-serif;
     cursor: pointer;
 }
+
+
+
 
 .duration-reminder {
     font-size: 16px;

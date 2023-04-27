@@ -9,14 +9,37 @@ import BreatheGuy from './visual_components/BreatheGuy';
 import MeditationPeeps from './visual_components/MeditationPeeps';
 import Sun from './visual_components/Sun';
 import Circle from './visual_components/Circle';
+import Details from './visual_components/Details';
 import eye from './images/eye.png'
 import BreathText from './visual_components/BreathText';
 import VisualChooser from './VisualChooser';
 import { useEffect, useState } from 'react';
 
 
+const hideDistractions = () => {
+  let visuals = document.querySelector('.choice-container')
+  let details = document.querySelector('.details-container')
+  if (visuals.classList.contains('hidden') === false) {
+    visuals.classList.add('hidden')
+    details.classList.add('hidden')
+  } else {
+    visuals.classList.remove('hidden')
+    details.classList.remove('hidden')
 
-let animations = [<BreatheGuy />, <MeditationPeeps/>, <Seagull name='seagull'/>, <Fish />, <Sun />, <Circle />, <Swing />, <HeartShape /> ]
+  }
+}
+
+
+
+
+let animations = [<BreatheGuy hideDistractions={hideDistractions} />,
+<MeditationPeeps />,
+<Seagull />,
+<Fish />, <Sun />,
+<Circle />,
+<Swing />,
+<HeartShape />]
+
 
 function App() {
   const [animation, setAnimation] = useState(animations[0])
@@ -34,16 +57,16 @@ function App() {
     <div className="App">
       <div className='page-title'>
         <h1 className='main-title'>Visual <img className='title-eye' src={eye}></img> Meditations</h1>
-      <p className='sub-title'>Built with ❤️ by: M.S. Irby</p>
+        <p className='sub-title'>Built with ❤️ by: M.S. Irby</p>
       </div>
       <div className='choice-container'>
-      <VisualChooser animations={animations} setAnimation={setAnimation}/>
+        <VisualChooser animations={animations} setAnimation={setAnimation} />
       </div>
       <div className='animation-container'>
-        {/* <HeartShape /> */}
-        {/* <Seagull /> */}
         {animation}
-        {/* <AudioVisualizer /> */}
+      </div>
+      <div className='details-container'>
+        <Details />
       </div>
     </div>
   );
