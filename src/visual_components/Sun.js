@@ -59,6 +59,7 @@ const Sun = ({hideDistractions}) => {
         playButton.style.animation = ''
         console.log(duration)
         if (toggle == 'off' && duration !== 'false') {
+            window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
             app.style.overflow = 'hidden'
             countdown()
             setTimeout(() => {

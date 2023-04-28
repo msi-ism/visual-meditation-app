@@ -59,9 +59,10 @@ const Seagull = ({hideDistractions}) => {
         playButton.style.animation = ''
         console.log(duration)
         if (toggle == 'off' && duration !== 'false') {
+            window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
+            app.style.overflow = 'hidden'
             countdown()
             setTimeout(() => {
-                app.style.overflow = 'hidden'
                 setToggle('on')
                 console.log(toggle)
                 animation.current.play()
