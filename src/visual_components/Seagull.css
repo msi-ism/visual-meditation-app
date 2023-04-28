@@ -15,7 +15,7 @@
     border: 8px solid rgb(32, 105, 123);
     border-radius: 50%;
     position: relative;
-
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.505);
    
 }
 .start-btn {
@@ -46,11 +46,11 @@
 @media only screen and (max-width: 900px) {
     .sea-container {
         width: auto !important;
-        height: 350px !important;
+        height: 40vh !important;
     }
 
     .sea-breath {
-        font-size: 36px;
+        font-size: 32px;
         position: absolute;
         top: 190px;
         left: 0;
@@ -63,7 +63,7 @@
     
     
     .countdown-sea {
-        font-size: 36px;
+        font-size: 32px;
         position: absolute;
         top: 190px;
         left: 0;

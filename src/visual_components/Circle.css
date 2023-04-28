@@ -25,6 +25,7 @@
 .circle-container {
     position: relative;
 
+
    
 }
 .start-btn {
@@ -44,7 +45,7 @@
     }
 
     .circle-breath {
-        font-size: 28px;
+        font-size: 26px;
         position: absolute;
         top: 265px;
         left: 0;
@@ -56,7 +57,7 @@
     }
     
     .countdown-circle {
-        font-size: 28px;
+        font-size: 26px;
         position: absolute;
         top: 265px;
         left: 0;

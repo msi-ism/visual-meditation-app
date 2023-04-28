@@ -2,6 +2,7 @@
     border: 8px solid rgb(69, 160, 183);
     border-radius: 20%;
     position: relative;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.594);
 
    
 }
@@ -48,12 +49,12 @@
   @media only screen and (max-width: 900px) {
     .fish-container {
         width: auto !important;
-        height: 320px !important;
+        height: 40vh !important;
         position: relative;
     }
 
     .fish-breath {
-        font-size: 36px;
+        font-size: 32px;
         position: absolute;
         top: 170px;
         left: 0;
@@ -66,7 +67,7 @@
     
     
     .countdown-fish {
-        font-size: 36px;
+        font-size: 32px;
         position: absolute;
         top: 170px;
         left: 0;

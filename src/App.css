@@ -133,16 +133,20 @@
     height: auto;
     width: 100vw;
     text-align: center;
-    margin-bottom: 10px;
     overflow-x: hidden;
+    transition: visibility 2s 0s, opacity 1s linear;
   }
 
   .page-title > .main-title {
-    font-size: 32px;
+    font-size: 30px;
+  }
+
+  .page-title > .sub-title {
+    font-size: 16px;
   }
 
   .title-eye {
-    max-height: 35px;
+    max-height: 32px;
     padding: 0;
     margin: 0;
   
@@ -155,7 +159,7 @@
     justify-content: center;
     text-align: center;
     align-items: center;
-    margin-bottom: 25px;
+    margin-bottom: 0px;
     height: 100%;
     width: auto;
     overflow-x: hidden;
@@ -189,10 +193,11 @@
   }
 
   .hidden {
-    display: none;
+    visibility: hidden;
     opacity: 0;
-    transition: display 0s 2s, opacity 2s linear;
+    transition: visibility 0s 2s, opacity 2s linear;
   }
+
   
   
 }

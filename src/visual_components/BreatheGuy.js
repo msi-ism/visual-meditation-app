@@ -53,11 +53,13 @@ const BreatheGuy = ({hideDistractions}) => {
     }
     // ^ Starts and stops animation on click
     const toggleAnimation = () => {
+        let app = document.body
         let breathText = document.querySelector('.guy-breath')
         let playButton = document.querySelector('.play-btn')
         playButton.style.animation = ''
         console.log(duration)
         if (toggle == 'off' && duration !== 'false') {
+            app.style.overflow = 'hidden'
             countdown()
             setTimeout(() => {
                 setToggle('on')
@@ -67,6 +69,7 @@ const BreatheGuy = ({hideDistractions}) => {
         } else {
             animation.current.stop()
             breathText.style.animation = ''
+            app.style.overflow = 'scroll'
             hideDistractions()
             setDuration(durationDisplay)
             setToggle('off')
