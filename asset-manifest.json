@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/visual-meditation-app/static/css/main.3617122d.css",
-    "main.js": "/visual-meditation-app/static/js/main.2c37fb13.js",
+    "main.css": "/visual-meditation-app/static/css/main.db98b719.css",
+    "main.js": "/visual-meditation-app/static/js/main.51028634.js",
     "static/js/787.032b59fc.chunk.js": "/visual-meditation-app/static/js/787.032b59fc.chunk.js",
     "static/media/ocean_meditation.mp3": "/visual-meditation-app/static/media/ocean_meditation.54a752fc4a86ae286c6d.mp3",
     "static/media/swing_choice.png": "/visual-meditation-app/static/media/swing_choice.18355d6f6a642d5f9b2e.png",
@@ -22,12 +22,12 @@
     "static/media/beating_doodle.png": "/visual-meditation-app/static/media/beating_doodle.f24bb07f01268c6c5ec2.png",
     "static/media/logo.svg": "/visual-meditation-app/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/visual-meditation-app/index.html",
-    "main.3617122d.css.map": "/visual-meditation-app/static/css/main.3617122d.css.map",
-    "main.2c37fb13.js.map": "/visual-meditation-app/static/js/main.2c37fb13.js.map",
+    "main.db98b719.css.map": "/visual-meditation-app/static/css/main.db98b719.css.map",
+    "main.51028634.js.map": "/visual-meditation-app/static/js/main.51028634.js.map",
     "787.032b59fc.chunk.js.map": "/visual-meditation-app/static/js/787.032b59fc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3617122d.css",
-    "static/js/main.2c37fb13.js"
+    "static/css/main.db98b719.css",
+    "static/js/main.51028634.js"
   ]
 }
