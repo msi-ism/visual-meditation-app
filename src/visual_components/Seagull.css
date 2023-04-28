@@ -7,7 +7,7 @@
     margin: 0 auto;
     opacity: 0;
     animation: '';
-    color: white;
+
 
 }
 
@@ -36,7 +36,7 @@
     right: 0;
     margin: 0 auto;
     opacity: 1;
-    color: white;
+
     animation: '';
     display: none;
 
@@ -50,7 +50,7 @@
     }
 
     .sea-breath {
-        font-size: 30px;
+        font-size: 28px;
         position: absolute;
         top: 10%;
         left: 0;
@@ -58,20 +58,20 @@
         margin: 0 auto;
         opacity: 0;
         animation: '';
-        color: white;
+
     }
     
     
     
     .countdown-sea {
-        font-size: 30px;
+        font-size: 28px;
         position: absolute;
         top: 10%;
         left: 0;
         right: 0;
         margin: 0 auto;
         opacity: 1;
-        color: white;
+ 
         animation: '';
         display: none;
     

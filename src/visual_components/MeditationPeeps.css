@@ -107,7 +107,7 @@
   @media only screen and (max-width: 900px) {
     .med-background {
         width: auto !important;
-        height: 350px !important;
+        height: 40vh !important;
     }
 
     .med-breath {
