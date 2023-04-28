@@ -8,6 +8,10 @@
     margin: 0;
 }
 
+.details-title {
+    margin-bottom: 15px;
+}
+
 
 .details-box {
     background-color: beige;

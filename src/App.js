@@ -62,8 +62,14 @@ function App() {
   return (
     <div className="App">
       <div className='page-title'>
+      <div className='titles'>
+      <p className='sub-title'>Welcome to</p>
         <h1 className='main-title'>Visual <img className='title-eye' src={eye}></img> Meditations</h1>
         <p className='sub-title'>Built with ❤️ by: M.S. Irby</p>
+        </div>
+      <div className='welcome-text'>
+        <p>Choose an anchor below, set your duration, & click 'start' to begin your meditation.</p>
+        </div>
       </div>
       <div className='choice-container'>
         <VisualChooser animations={animations} setAnimation={setAnimation} />

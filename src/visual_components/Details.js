@@ -4,7 +4,7 @@ import './Details.css'
 const Details = () => {
     return (
         <div className='details'>
-            <h1>Meditation Tips</h1>
+            <h1 className='details-title'>Meditation Tips</h1>
             <div className='details-box'>
                 <p>1. Find a comfortable position where you can view your device with a neutral head position.</p>
                 <p>2. Choose an anchor, set your duration, click start, & follow the prompts.</p>
