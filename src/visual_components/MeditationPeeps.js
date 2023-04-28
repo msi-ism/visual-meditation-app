@@ -53,11 +53,13 @@ const MeditationPeeps = ({hideDistractions}) => {
     }
     // ^ Starts and stops animation on click
     const toggleAnimation = () => {
+        let app = document.body
         let breathText = document.querySelector('.med-breath')
         let playButton = document.querySelector('.play-btn')
         playButton.style.animation = ''
         console.log(duration)
         if (toggle == 'off' && duration !== 'false') {
+            app.style.overflow = 'hidden'
             countdown()
             setTimeout(() => {
                 setToggle('on')
@@ -67,6 +69,7 @@ const MeditationPeeps = ({hideDistractions}) => {
         } else {
             animation.current.stop()
             breathText.style.animation = ''
+            app.style.overflow = 'scroll'
             hideDistractions()
             setDuration(durationDisplay)
             clearCountdown()
@@ -186,6 +189,8 @@ const MeditationPeeps = ({hideDistractions}) => {
                     }
                     // ^ when animation finishes entirerly, please complete message and reset duration
                     if (duration !== 'false' && event === 'complete') {
+                        let app = document.body
+                        app.style.overflow = 'scroll'
                         completeMessage()
                         setToggle('off')
                         setDuration('false')

@@ -55,9 +55,11 @@ const Sun = ({hideDistractions}) => {
     const toggleAnimation = () => {
         let breathText = document.querySelector('.sun-breath')
         let playButton = document.querySelector('.play-btn')
+        let app = document.body
         playButton.style.animation = ''
         console.log(duration)
         if (toggle == 'off' && duration !== 'false') {
+            app.style.overflow = 'hidden'
             countdown()
             setTimeout(() => {
                 setToggle('on')
@@ -67,6 +69,7 @@ const Sun = ({hideDistractions}) => {
         } else {
             animation.current.stop()
             breathText.style.animation = ''
+            app.scroll.overflow = 'scroll'
             hideDistractions()
             setDuration(durationDisplay)
             clearCountdown()
@@ -187,6 +190,8 @@ const Sun = ({hideDistractions}) => {
                     }
                     // ^ when animation finishes entirerly, please complete message and reset duration
                     if (duration !== 'false' && event === 'complete') {
+                        let app = document.body
+                        app.style.overflow = 'scroll'
                         completeMessage()
                         setToggle('off')
                         setDuration('false')

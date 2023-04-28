@@ -192,6 +192,8 @@ const BreatheGuy = ({hideDistractions}) => {
                     }
                     // ^ when animation finishes entirerly, please complete message and reset duration
                     if (duration !== 'false' && event === 'complete') {
+                        let app = document.body
+                        app.style.overflow = 'scroll'
                         completeMessage()
                         setToggle('off')
                         setDuration('false')

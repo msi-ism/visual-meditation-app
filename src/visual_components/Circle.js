@@ -54,11 +54,13 @@ const Circle = ({hideDistractions}) => {
     }
     // ^ Starts and stops animation on click
     const toggleAnimation = () => {
+        let app = document.body
         let breathText = document.querySelector('.circle-breath')
         let playButton = document.querySelector('.play-btn')
         playButton.style.animation = ''
         console.log(duration)
         if (toggle == 'off' && duration !== 'false') {
+            app.style.overflow = 'hidden'
             countdown()
             setTimeout(() => {
                 setToggle('on')
@@ -68,6 +70,7 @@ const Circle = ({hideDistractions}) => {
         } else {
             animation.current.stop()
             breathText.style.animation = ''
+            app.style.overflow = 'scroll'
             hideDistractions()
             setDuration(durationDisplay)
             clearCountdown()
@@ -190,6 +193,8 @@ const Circle = ({hideDistractions}) => {
                     }
                     // ^ when animation finishes entirely, please complete message and reset duration
                     if (duration !== 'false' && event === 'complete') {
+                        let app = document.body
+                        app.style.overflow = 'scroll'
                         completeMessage()
                         setToggle('off')
                         setDuration('false')
