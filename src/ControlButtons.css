@@ -3,8 +3,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
     padding: 0;
+    margin-top: 15px;
+    gap: 20px;
 }
 
 
@@ -38,7 +39,7 @@
 }
 
 .duration-row {
-    margin-top: 10px;
+
     box-shadow: 0px 0px 5px black;
 }
 
@@ -57,6 +58,7 @@
 .duration-reminder {
     font-size: 16px;
     animation: '';
+    margin: 0;
 }
 
 .db:hover{
@@ -74,6 +76,7 @@
 .duration-text {
     font-size: 16px;
     animation: '';
+    margin: 0;
 }
 
   

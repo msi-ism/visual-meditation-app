@@ -80,6 +80,11 @@
   margin: 0;
 }
 
+.welcome-text {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 
 .App > .page-title {
   grid-column-start: 2;
