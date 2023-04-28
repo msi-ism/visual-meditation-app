@@ -57,7 +57,6 @@
 
 .med-background > .med-container {
     border-radius: 10%;
-    position: relative;
     padding: 0;
     margin: 0;
     padding-bottom: -10px;
@@ -72,7 +71,7 @@
 .med-breath {
     font-size: 36px;
     position: absolute;
-    top: 165px;
+    top: 10%;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -94,7 +93,7 @@
   .countdown-med {
     font-size: 36px;
     position: absolute;
-    top: 165px;
+    top: 10%;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -114,7 +113,7 @@
     .med-breath {
         font-size: 32px;
         position: absolute;
-        top: 200px;
+        top: 10%;
         left: 0;
         right: 0;
         margin: 0 auto;
@@ -123,11 +122,10 @@
     }
     
     
-    
     .countdown-med {
         font-size: 32px;
         position: absolute;
-        top: 200px;
+        top: 10%;
         left: 0;
         right: 0;
         margin: 0 auto;
@@ -137,8 +135,6 @@
         display: none;
     
     }
-
-
   }
 
 

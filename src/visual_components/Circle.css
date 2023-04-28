@@ -1,7 +1,7 @@
 .circle-breath {
-    font-size: 30px;
+    font-size: 28px;
     position: absolute;
-    top: 300px;
+    top: 33.3%;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -11,9 +11,9 @@
 }
 
 .countdown-circle {
-    font-size: 30px;
+    font-size: 28px;
     position: absolute;
-    top: 300px;
+    top: 33.3%;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -23,7 +23,7 @@
 }
 
 .circle-container {
-    position: relative;
+
 
 
    
@@ -47,7 +47,7 @@
     .circle-breath {
         font-size: 26px;
         position: absolute;
-        top: 265px;
+        top: 30%;
         left: 0;
         right: 0;
         margin: 0 auto;
@@ -59,7 +59,7 @@
     .countdown-circle {
         font-size: 26px;
         position: absolute;
-        top: 265px;
+        top: 30%;
         left: 0;
         right: 0;
         margin: 0 auto;

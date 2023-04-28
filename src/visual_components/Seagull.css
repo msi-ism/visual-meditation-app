@@ -1,20 +1,20 @@
 .sea-breath {
     font-size: 36px;
     position: absolute;
-    top: 180px;
+    top: 10%;
     left: 0;
     right: 0;
     margin: 0 auto;
     opacity: 0;
     animation: '';
+    color: white;
 
 }
 
 
 .sea-container {
-    border: 8px solid rgb(32, 105, 123);
+    border: 8px solid rgb(82, 125, 135);
     border-radius: 50%;
-    position: relative;
     box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.505);
    
 }
@@ -31,7 +31,7 @@
 .countdown-sea {
     font-size: 36px;
     position: absolute;
-    top: 165px;
+    top: 10%;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -50,27 +50,28 @@
     }
 
     .sea-breath {
-        font-size: 32px;
+        font-size: 30px;
         position: absolute;
-        top: 190px;
+        top: 10%;
         left: 0;
         right: 0;
         margin: 0 auto;
         opacity: 0;
         animation: '';
+        color: white;
     }
     
     
     
     .countdown-sea {
-        font-size: 32px;
+        font-size: 30px;
         position: absolute;
-        top: 190px;
+        top: 10%;
         left: 0;
         right: 0;
         margin: 0 auto;
         opacity: 1;
-        color: black;
+        color: white;
         animation: '';
         display: none;
     
