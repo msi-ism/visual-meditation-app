@@ -64,11 +64,12 @@ function App() {
       <div className='page-title'>
       <div className='titles'>
       <p className='sub-title'>Welcome to</p>
-        <h1 className='main-title'>Visual <img className='title-eye' src={eye}></img> Meditations</h1>
+        <h1 className='main-title'>Open-Eye <img className='title-eye' src={eye}></img> Meditations</h1>
         <p className='sub-title'>Built with ❤️ by: M.S. Irby</p>
         </div>
       <div className='welcome-text'>
-        <p>Choose an anchor below, set your duration, & click 'start' to begin your meditation.</p>
+        <p>Welcome to Visual Meditations. An app I created as an entry-point to the often intimidating practice of meditation.</p>
+        <p>Choose an animation to serve as an anchor for your awareness & scroll down for more meditation tips.</p>
         </div>
       </div>
       <div className='choice-container'>
