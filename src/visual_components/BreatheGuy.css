@@ -49,10 +49,92 @@
   }
 
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-height: 950px) and ( max-width: 900px) {
     .guy-container {
-        width: auto !important;
-        height: 35vh !important;
+        width: 65vw !important;
+        height: 33vh !important;
+
+ 
+    }
+
+    .guy-breath {
+        font-size: 28px;
+        position: absolute;
+        top:  10%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        opacity: 0;
+        animation: '';
+    }
+    
+    
+    
+    .countdown-guy {
+        font-size: 28px;
+        position: absolute;
+        top: 10%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        opacity: 1;
+        color: black;
+        animation: '';
+        display: none;
+    
+    }
+    
+  }
+
+  /* For IOS Devices */
+  @media only screen and (max-height: 740px)  {
+    .guy-container {
+        width: 48vw !important;
+        height: 30vh !important;
+
+ 
+    }
+
+    .guy-breath {
+        font-size: 28px;
+        position: absolute;
+        top:  10%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        opacity: 0;
+        animation: '';
+    }
+    
+    
+    
+    .countdown-guy {
+        font-size: 28px;
+        position: absolute;
+        top: 10%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        opacity: 1;
+        color: black;
+        animation: '';
+        display: none;
+    
+    }
+    
+  }
+
+
+
+  /* @media only screen 
+  and (device-width: 390px) 
+  and (device-height: 844px) 
+  and (-webkit-device-pixel-ratio: 3) { 
+    .guy-container {
+        width: 65vw !important;
+        height: 33vh !important;
+
+ 
     }
 
     .guy-breath {
@@ -82,6 +164,6 @@
     
     }
 
-    
-    
-  }
+
+
+  } */

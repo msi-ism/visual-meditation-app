@@ -113,18 +113,20 @@ const MeditationPeeps = ({hideDistractions}) => {
     }
 
   // ^ Message that plays once animation is complete
-    const completeMessage = () => {
-        let breathText = document.querySelector('.med-breath')
-        setBreath('Complete.')
+  const completeMessage = () => {
+    let affirmations = ['Nicely Done!', 'Great job!', 'Way to go!', 'You did it!']
+    let randAffirm = Math.floor(Math.random() * affirmations.length)
+    let breathText = document.querySelector('.med-breath')
+    setBreath('Complete.')
+    breathText.style.animation = 'fade 3s 1 ease-in-out'
+    setTimeout(() => {
+        breathText.style.animation = ''
+    }, 3150)
+    setTimeout(() => {
         breathText.style.animation = 'fade 3s 1 ease-in-out'
-        setTimeout(() => {
-            breathText.style.animation = ''
-        }, 3150)
-        setTimeout(() => {
-            breathText.style.animation = 'fade 3s 1 ease-in-out'
-            setBreath('Nicely Done.')
-        }, 3750)
-    }
+        setBreath(affirmations[randAffirm])
+    }, 3750)
+}
 
 
   // ^ Used to re-render animation component when duration is changed to give live value

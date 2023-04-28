@@ -14,8 +14,7 @@
     align-items: center;
     cursor: pointer;
     animation: '';
-    width: auto;
-    height: auto;
+    max-width: 75px;
     border-radius: 80%;
     box-shadow: 0 0 20px rgba(0,0,0, .25);
 }
@@ -47,6 +46,9 @@
     border: 2px solid black;
     font-family: 'Schibsted Grotesk', sans-serif;
     cursor: pointer;
+    background-color: transparent;
+    margin: 0;
+    color: black;
 }
 
 
@@ -124,8 +126,7 @@
     }
     
     .play-img {
-        max-width: 65px;
-        max-height: 50%;
+        max-width: 60px;
     
     }
 
