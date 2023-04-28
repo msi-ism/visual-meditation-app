@@ -114,6 +114,8 @@ const Sun = ({hideDistractions}) => {
 
   // ^ Message that plays once animation is complete
     const completeMessage = () => {
+        let affirmations = ['Nicely Done!', 'Great job!', 'Way to go!', 'You did it!']
+        let randAffirm = Math.floor(Math.random() * affirmations.length)
         let breathText = document.querySelector('.sun-breath')
         setBreath('Complete.')
         breathText.style.animation = 'fade 3s 1 ease-in-out'
@@ -122,7 +124,7 @@ const Sun = ({hideDistractions}) => {
         }, 3150)
         setTimeout(() => {
             breathText.style.animation = 'fade 3s 1 ease-in-out'
-            setBreath('Nicely Done.')
+            setBreath(affirmations[randAffirm])
         }, 3750)
     }
 
