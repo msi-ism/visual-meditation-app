@@ -54,7 +54,7 @@
     box-shadow: 0px 0px 5px black;
     transition: visibility 2s 0s, opacity 1s linear;
     width: auto;
-    height: 100%;
+    height: auto;
 }
 
 .duration-row > .db {
@@ -65,8 +65,9 @@
     margin: 0;
     color: black;
     background-color: rgb(171, 192, 155);
-    height: 100%;
+    height: auto;
     width: auto;
+    padding: 3px;
 }
 
 
