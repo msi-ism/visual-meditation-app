@@ -39,7 +39,7 @@
 }
 
 .tips-scroll {
-    display: none;
+    color: transparent;
     cursor: pointer;
  
 }

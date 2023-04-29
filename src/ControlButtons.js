@@ -62,7 +62,7 @@ const ControlButtons = ({ toggleAnimation, updateDuration, duration, durationDis
             </div>
 
             {duration !== 'false' ? <div className="play-btn" onClick={toggleAnimation}><img className='play-img' src={playButton}></img></div> : <div className="play-btn" onClick={durationReminder}><img className='play-img' src={nostart}></img></div>}
-            <div className='tips-scroll' onClick={scrollTips}><img src={scrollDown} className='scroll-img'></img>Meditation tips below<img src={scrollDown} className='scroll-img'></img></div>
+            <div className='tips-scroll' onClick={scrollTips}>↓ Anchors, About, & Tips ↓</div>
         </div>
     );
 }

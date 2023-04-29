@@ -9,7 +9,6 @@
 }
 
 .details-title {
-    margin-top: 20px;
     margin-bottom: 20px;
     font-family: 'DM Sans';
 }
@@ -29,3 +28,13 @@
 h1 {
     font-size: 26px;
 }
+
+
+@media only screen and (max-width: 900px) {
+    .details-title {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-family: 'DM Sans';
+    }
+    
+  }
