@@ -45,8 +45,8 @@
 
 @media only screen and (max-width: 900px) {
     .sea-container {
-        width: 250px !important;
-        height: 250px !important;
+        width: 300px !important;
+        height: 300px !important;
     }
 
     .sea-container > svg {

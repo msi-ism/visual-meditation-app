@@ -47,8 +47,8 @@
 
   @media only screen and (max-width: 900px) {
     .fish-container {
-        width: auto !important;
-        height: 40vh !important;
+        width: 300px !important;
+        height: 300px !important;
     }
 
     .fish-breath {
