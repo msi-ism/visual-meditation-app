@@ -51,8 +51,8 @@
 
   @media only screen and (max-height: 950px) and ( max-width: 900px) {
     .guy-container {
-        width: 250px !important;
-        height: 31vh !important;
+        width: 300px !important;
+        height: 340px !important;
 
  
     }
