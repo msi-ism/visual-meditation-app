@@ -54,7 +54,7 @@
     box-shadow: 0px 0px 5px black;
     transition: visibility 2s 0s, opacity 1s linear;
     width: auto;
-    height: auto;
+    height: 100%;
 }
 
 .duration-row > .db {
