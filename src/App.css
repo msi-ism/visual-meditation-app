@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Dosis&family=Lato:wght@300&family=Mukta&family=Poppins:wght@300&family=Prompt&family=Rubik&family=Schibsted+Grotesk:wght@600&family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=DM+Sans:wght@500&family=Dosis&family=Lato:wght@300&family=Mukta&family=Mulish:wght@600&family=Poppins:wght@300&family=Prompt&family=Rubik:wght@400;600&family=Schibsted+Grotesk:wght@600&display=swap');
 
 
 .App {
@@ -6,7 +6,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1;
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Mullish', sans-serif;
   font-style: normal;
   font-weight: 400;
 

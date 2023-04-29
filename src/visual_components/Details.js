@@ -3,7 +3,7 @@ import './Details.css'
 
 const Details = () => {
     return (
-        <div className='details'>
+        <div id='details-div 'className='details'>
             <h1 className='details-title'>Meditation Tips</h1>
             <div className='details-box'>
                 <p>1. Find a comfortable position where you can view your device with a neutral head position.</p>

@@ -67,8 +67,8 @@ function App() {
         <p className='sub-title'>Built with ❤️ by: M.S. Irby</p>
         </div>
       <div className='welcome-text'>
-        <p>Welcome to Open-Eye Meditations. An app I created as an entry-point to the often intimidating practice of meditation.</p>
-        <p>Choose an animation to serve as an anchor for your awareness & scroll down for more meditation tips.</p>
+        <p>Welcome to this visual meditation tool!</p>
+        <p>Choose an animation to serve as an anchor, set a duration, & click 'start' to begin.</p>
         </div>
       </div>
       <div className='choice-container'>

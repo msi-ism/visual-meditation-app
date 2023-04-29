@@ -39,6 +39,11 @@ const ControlButtons = ({ toggleAnimation, updateDuration, duration, durationDis
         }
     }
 
+    const scrollTips = () => {
+        let tips = document.querySelector(".tips-scroll");
+        tips.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+
     useEffect(() => {
         console.log(toggle)
         changeButton()
@@ -56,6 +61,7 @@ const ControlButtons = ({ toggleAnimation, updateDuration, duration, durationDis
             </div>
 
             {duration !== 'false' ? <div className="play-btn" onClick={toggleAnimation}><img className='play-img' src={playButton}></img></div> : <div className="play-btn" onClick={durationReminder}><img className='play-img' src={nostart}></img></div>}
+            <div className='tips-scroll' onClick={scrollTips}>Scroll down for tips</div>
         </div>
     );
 }
