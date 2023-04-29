@@ -42,7 +42,7 @@ const ControlButtons = ({ toggleAnimation, updateDuration, duration, durationDis
 
     const scrollTips = () => {
         let tips = document.querySelector(".tips-scroll");
-        tips.scrollIntoView({behavior:'smooth', block:'start'});
+        tips.scrollIntoView({behavior:'smooth', block:'center'});
     }
 
     useEffect(() => {
