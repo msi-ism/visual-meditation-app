@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import start from './images/start.png'
 import nostart from './images/nostart.png'
 import stop from './images/stop.png'
+import scrollDown from './images/scroll.png'
 
 const ControlButtons = ({ toggleAnimation, updateDuration, duration, durationDisplay, toggle }) => {
     const [playButton, setPlayButton] = useState(start)
@@ -61,7 +62,7 @@ const ControlButtons = ({ toggleAnimation, updateDuration, duration, durationDis
             </div>
 
             {duration !== 'false' ? <div className="play-btn" onClick={toggleAnimation}><img className='play-img' src={playButton}></img></div> : <div className="play-btn" onClick={durationReminder}><img className='play-img' src={nostart}></img></div>}
-            <div className='tips-scroll' onClick={scrollTips}>Scroll down for tips</div>
+            <div className='tips-scroll' onClick={scrollTips}><img src={scrollDown} className='scroll-img'></img>Meditation tips below<img src={scrollDown} className='scroll-img'></img></div>
         </div>
     );
 }

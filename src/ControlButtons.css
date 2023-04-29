@@ -42,6 +42,13 @@
     font-size: 16px;
     color: grey;
     transition: visibility 2s 0s, opacity 1s linear;
+    display: flex;
+    flex-direction: row;
+}
+
+.scroll-img {
+    max-height: 20px;
+    opacity: .8;
 }
 
 .duration-row {
