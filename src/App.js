@@ -21,16 +21,19 @@ const hideDistractions = () => {
   let details = document.querySelector('.details-container')
   let title = document.querySelector('.page-title')
   let buttons = document.querySelector('.duration-row')
+  let tips = document.querySelector('.tips-scroll')
   if (visuals.classList.contains('hidden') === false) {
     visuals.classList.add('hidden')
     details.classList.add('hidden')
     title.classList.add('hidden')
     buttons.classList.add('hidden')
+    tips.classList.add('hidden')
   } else {
     visuals.classList.remove('hidden')
     details.classList.remove('hidden')
     title.classList.remove('hidden')
     buttons.classList.remove('hidden')
+    tips.classList.remove('hidden')
   }
 }
 
