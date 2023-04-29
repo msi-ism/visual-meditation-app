@@ -89,8 +89,8 @@
   /* For IOS Devices */
   @media only screen and (max-height: 740px) and (max-width: 450px) {
     .guy-container {
-        width: 48vw !important;
-        height: 30vh !important;
+        width: 200px !important;
+        height: 230px !important;
 
  
     }
