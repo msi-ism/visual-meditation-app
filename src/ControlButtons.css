@@ -39,11 +39,9 @@
 }
 
 .tips-scroll {
-    font-size: 16px;
-    color: grey;
-    transition: visibility 2s 0s, opacity 1s linear;
-    display: flex;
-    flex-direction: row;
+    display: none;
+    cursor: pointer;
+ 
 }
 
 .scroll-img {
@@ -73,6 +71,7 @@
     font-size: 16px;
     animation: '';
     margin: 0;
+    font-family: 'DM Sans';
 }
 
 .db:hover{
@@ -91,6 +90,7 @@
     font-size: 16px;
     animation: '';
     margin: 0;
+    font-family: 'DM Sans';
 }
 
   
@@ -130,6 +130,13 @@
         box-shadow: 0 0 20px rgba(0,0,0, .25);
     }
     
+    .tips-scroll {
+        font-size: 16px;
+        color: grey;
+        transition: visibility 2s 0s, opacity 1s linear;
+        display: flex;
+        flex-direction: row;
+    }
     
     .play-btn:hover {
         opacity: 0.75;

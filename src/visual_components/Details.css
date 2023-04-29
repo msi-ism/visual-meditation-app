@@ -11,17 +11,19 @@
 .details-title {
     margin-top: 20px;
     margin-bottom: 20px;
+    font-family: 'DM Sans';
 }
 
 
 .details-box {
-    background-color: #efecec;
-    background-image: linear-gradient(315deg, #efecec 0%, #e9dab1 74%);
+    background-color: #ebbe9b91;
+    background-image: linear-gradient(315deg, #ddb99e95 0%, #decbbb86 54%);
     width: 75%;
     height: auto;
     padding: 15px;
     border-radius: 5%;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.381);
+    font-family: 'DM Sans';
 }
 
 h1 {
