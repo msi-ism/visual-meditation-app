@@ -16,7 +16,8 @@
     cursor: pointer;
     animation: '';
     max-width: 75px;
-    border-radius: 80%;
+    height: auto;
+    border-radius: 100%;
     box-shadow: 0 0 20px rgba(0,0,0, .25);
 }
 
@@ -32,9 +33,10 @@
 
 }
 
-.play-img {
+.play-btn > .play-img {
     max-width: 75px;
-    max-height: 50%;
+    height: auto;
+
 
 }
 
@@ -51,7 +53,7 @@
 }
 
 .duration-row {
-    box-shadow: 0px 0px 5px black;
+
     transition: visibility 2s 0s, opacity 1s linear;
     width: auto;
     height: auto;
@@ -61,12 +63,13 @@
     border: 2px solid black;
     font-family: 'Schibsted Grotesk', sans-serif;
     cursor: pointer;
-    background-color: transparent;
+    background-color: whitesmoke;
     margin: 0;
     color: black;
     height: auto;
     width: auto;
     padding: 3px;
+    box-shadow: 0px 0px 5px black;
 }
 
 
@@ -84,10 +87,11 @@
     cursor: pointer;
 }
 
-.active-btn {
-    border: 4px solid rgba(123, 67, 187, 0.5);
-    opacity: .8;
-    box-shadow: 0px 0px 10px rgb(130, 94, 136);
+.duration-row > .active-btn {
+    border: 2px solid rgb(72, 47, 102);
+    box-shadow: inset 0px 0px 5px black;
+
+    
 
 }
 
