@@ -178,10 +178,24 @@ const BreatheGuy = ({hideDistractions}) => {
                     let halfway = Math.round(totalFrames / 2)
                     let setHold = () => {
                         let breathText = document.querySelector('.guy-breath')
-                        breathText.style.animation = 'fade 3s 1 ease-in-out'
+                        breathText.style.animation = 'fade 1.5s 1 ease-in-out'
                         let hold = 'Hold'
                         setBreath(hold)
-                        setTimeout(cutAnimation, 2000)
+                        setTimeout(cutAnimation, 1000)
+                    }
+                    let setInhale = () => {
+                        let breathText = document.querySelector('.guy-breath')
+                        breathText.style.animation = 'fade 3.5s 1 ease-in-out'
+                        let inhale = 'Inhale'
+                        setBreath(inhale)
+                        setTimeout(cutAnimation, 3250)
+                    }
+                    let setExhale = () => {
+                        let breathText = document.querySelector('.guy-breath')
+                        breathText.style.animation = 'fade 3.5s 1 ease-in-out'
+                        let exhale = 'Exhale'
+                        setBreath(exhale)
+                        setTimeout(cutAnimation, 3300)
                     }
                     // ^ On load, play demo
                     if (event === 'load') {
@@ -196,22 +210,14 @@ const BreatheGuy = ({hideDistractions}) => {
                      // ^ Starts breath text animation with inhale and clears timer for meditation countdown
                     if (frame === 2 && toggle == 'on') {
                         clearCountdown()
-                        let breathText = document.querySelector('.guy-breath')
-                        let inhale = 'Inhale'
-                        breathText.style.animation = 'fade 3s 1 ease-in-out'
-                        setBreath(inhale)
-                        setTimeout(cutAnimation, 2450)
-                        setTimeout(setHold, 2800)
+                        setInhale()
+                        setTimeout(setHold, 3500)
                         console.log('1st frame')
                     }
                     // ^ switches breath text animation to 'exhale' at midpoint of animation
-                    if (frame === halfway && toggle == 'on') {
-                        let breathText = document.querySelector('.guy-breath')
-                        breathText.style.animation = 'fade 3s 1 ease-in-out'
-                        let exhale = 'Exhale'
-                        setBreath(exhale)
-                        setTimeout(cutAnimation, 2450)
-                        setTimeout(setHold, 2800)
+                    if (frame === halfway + 1 && toggle == 'on') {
+                        setExhale()
+                        setTimeout(setHold, 3500)
                         console.log('exhale')
 
                     }

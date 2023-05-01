@@ -151,10 +151,24 @@ const Seagull = ({hideDistractions}) => {
                     let halfway = Math.round(totalFrames / 2)
                     let setHold = () => {
                         let breathText = document.querySelector('.sea-breath')
-                        breathText.style.animation = 'fade 2s 1 ease-in-out'
+                        breathText.style.animation = 'fade 1.5s 1 ease-in-out'
                         let hold = 'Hold'
                         setBreath(hold)
-                        setTimeout(cutAnimation, 2000)
+                        setTimeout(cutAnimation, 1000)
+                    }
+                    let setInhale = () => {
+                        let breathText = document.querySelector('.sea-breath')
+                        breathText.style.animation = 'fade 3.5s 1 ease-in-out'
+                        let inhale = 'Inhale'
+                        setBreath(inhale)
+                        setTimeout(cutAnimation, 3300)
+                    }
+                    let setExhale = () => {
+                        let breathText = document.querySelector('.sea-breath')
+                        breathText.style.animation = 'fade 3.5s 1 ease-in-out'
+                        let exhale = 'Exhale'
+                        setBreath(exhale)
+                        setTimeout(cutAnimation, 3300)
                     }
                     // ^ On load, play demo
                     if (event === 'load') {
@@ -169,22 +183,14 @@ const Seagull = ({hideDistractions}) => {
                      // ^ Starts breath text animation with inhale and clears timer for meditation countdown
                     if (frame === 2 && toggle == 'on') {
                         clearCountdown()
-                        let breathText = document.querySelector('.sea-breath')
-                        let inhale = 'Inhale'
-                        breathText.style.animation = 'fade 4s 1 ease-in-out'
-                        setBreath(inhale)
-                        setTimeout(cutAnimation, 2750)
-                        setTimeout(setHold, 2800)
+                        setInhale()
+                        setTimeout(setHold, 3500)
                         console.log('1st frame')
                     }
                     // ^ switches breath text animation to 'exhale' at midpoint of animation
                     if (frame === halfway + 1 && toggle == 'on') {
-                        let breathText = document.querySelector('.sea-breath')
-                        breathText.style.animation = 'fade 4s 1 ease-in-out'
-                        let exhale = 'Exhale'
-                        setBreath(exhale)
-                        setTimeout(cutAnimation, 2750)
-                        setTimeout(setHold, 2950)
+                        setExhale()
+                        setTimeout(setHold, 3500)
                         console.log('exhale')
 
                     }
