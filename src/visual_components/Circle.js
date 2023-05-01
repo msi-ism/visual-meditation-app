@@ -6,7 +6,6 @@ import BreathText from './BreathText';
 import './Circle.css'
 import ControlButtons from '../ControlButtons';
 
-
 const Circle = ({hideDistractions}) => {
     const [duration, setDuration] = useState('false')
     // ^ Controls the state of the animations
@@ -74,7 +73,6 @@ const Circle = ({hideDistractions}) => {
             app.style.overflow = 'scroll'
             hideDistractions()
             setDuration(durationDisplay)
-            clearCountdown()
             setToggle('off')
         }
     }
@@ -109,13 +107,12 @@ const Circle = ({hideDistractions}) => {
             setDemoCounter(demoCounter => demoCounter + 1)
             console.log('this is democounter' + demoCounter)
             animation.current.play()
-            // setTimeout(stopAnimation, 5900)
         }
     }
 
   // ^ Message that plays once animation is complete
   const completeMessage = () => {
-    let affirmations = ['Nicely Done!', 'Great job!', 'Way to go!', 'You did it!']
+    let affirmations = ['Nicely Done!', 'Great job!', 'Way to go!', 'You did it!', 'Well Done!']
     let randAffirm = Math.floor(Math.random() * affirmations.length)
     let breathText = document.querySelector('.circle-breath')
     setBreath('Complete.')
@@ -156,14 +153,11 @@ const Circle = ({hideDistractions}) => {
                     if (event === 'load') {
                         console.log('lottie loaded')
                         playDemo()
-                        console.log(halfway)
-                        console.log(window.lottie.getRegisteredAnimations()[0])
                     }
                     // ^ Uses lottie's built in frame event to calculate the current frame, rounded to the nearest whole number
                     if (event === 'frame') {
                         let newFrame = window.lottie.getRegisteredAnimations()[0].currentFrame
                         setFrame(Math.round(newFrame))
-                        console.log(frame)
                     }
                      // ^ Starts breath text animation with inhale and clears timer for meditation countdown
                     if (frame === 1 && toggle == 'on') {

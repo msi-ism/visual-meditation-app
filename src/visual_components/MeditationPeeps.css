@@ -13,46 +13,45 @@
     border-radius: 10%;
     border: 10px solid rgb(116, 78, 124);
     justify-self: center;
-    background: linear-gradient(180deg,#f7f2f2, #e0e6b5,#e2d1de,#dec5c5,#bacad4,#dbc4df);
     background-size: 1000% 1000%;
+    -webkit-animation: AnimationName 24s ease infinite;
+    -moz-animation: AnimationName 24s ease infinite;
+    animation: 'AnimationName';
+    }
     
-      -webkit-animation: AnimationName 24s ease infinite;
-      -moz-animation: AnimationName 24s ease infinite;
-      animation: ''; }
-    
-      @-webkit-keyframes AnimationName {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-      @-moz-keyframes AnimationName {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-      @keyframes AnimationName {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
+  @-webkit-keyframes AnimationName {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  @-moz-keyframes AnimationName {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  @keyframes AnimationName {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 
 
 .med-background > .med-container {
@@ -62,10 +61,14 @@
     padding-bottom: -10px;
     box-shadow: 0px 0px 10px black;
 
-   
 }
+
+
+
 .start-btn {
     margin-top: 20px;
+    background: linear-gradient(180deg, #e1e6b551,#e2d1de60,#dec5c578,#bacad46c,#dbc4df7c,#f7f2f27b 85%);
+
 }
 
 .med-breath {

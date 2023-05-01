@@ -73,7 +73,6 @@ const Sun = ({hideDistractions}) => {
             app.scroll.overflow = 'scroll'
             hideDistractions()
             setDuration(durationDisplay)
-            clearCountdown()
             setToggle('off')
         }
     }
@@ -108,13 +107,12 @@ const Sun = ({hideDistractions}) => {
             setDemoCounter(demoCounter => demoCounter + 1)
             console.log('this is democounter' + demoCounter)
             animation.current.play()
-            // setTimeout(stopAnimation, 5900)
         }
     }
 
   // ^ Message that plays once animation is complete
     const completeMessage = () => {
-        let affirmations = ['Nicely Done!', 'Great job!', 'Way to go!', 'You did it!']
+        let affirmations = ['Nicely Done!', 'Great job!', 'Way to go!', 'You did it!', 'Well Done!']
         let randAffirm = Math.floor(Math.random() * affirmations.length)
         let breathText = document.querySelector('.sun-breath')
         setBreath('Complete.')

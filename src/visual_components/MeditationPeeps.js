@@ -73,7 +73,6 @@ const MeditationPeeps = ({hideDistractions}) => {
             app.style.overflow = 'scroll'
             hideDistractions()
             setDuration(durationDisplay)
-            clearCountdown()
             setToggle('off')
         }
     }
@@ -108,13 +107,12 @@ const MeditationPeeps = ({hideDistractions}) => {
             setDemoCounter(demoCounter => demoCounter + 1)
             console.log('this is democounter' + demoCounter)
             animation.current.play()
-            // setTimeout(stopAnimation, 5900)
         }
     }
 
   // ^ Message that plays once animation is complete
   const completeMessage = () => {
-    let affirmations = ['Nicely Done!', 'Great job!', 'Way to go!', 'You did it!']
+    let affirmations = ['Nicely Done!', 'Great job!', 'Way to go!', 'You did it!', 'Well Done!']
     let randAffirm = Math.floor(Math.random() * affirmations.length)
     let breathText = document.querySelector('.med-breath')
     setBreath('Complete.')
@@ -145,7 +143,7 @@ const MeditationPeeps = ({hideDistractions}) => {
                 autoplay={false}
                 loop={duration}
                 src={animationJSON}
-                style={{ height: '400px', width: '350px', padding: '0px' }}
+                style={{ height: '400px', width: '375px', padding: '0px', background: 'linear-gradient(180deg,  #e1e6b59c,#e2d1de9d,#dec5c5b6,#bacad4a8,#dbc4dfaa,#f7f2f2ac 85%)', animation: 'AnimationName'}}
                 onEvent={event => {
                     // ^ Grabbing total frames in animation from lottie object
                     let totalFrames = window.lottie.getRegisteredAnimations()[0].totalFrames

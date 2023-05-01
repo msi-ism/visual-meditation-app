@@ -6,8 +6,10 @@ import nostart from './images/nostart.png'
 import stop from './images/stop.png'
 import scrollDown from './images/scroll.png'
 
-const ControlButtons = ({ toggleAnimation, updateDuration, duration, durationDisplay, toggle }) => {
+const ControlButtons = ({ toggleAnimation, updateDuration, duration, durationDisplay, toggle, freeze, setFreeze }) => {
     const [playButton, setPlayButton] = useState(start)
+
+
 
     // const handleClick = (evt) => {
     //     let buttons = document.querySelector('.duration-row')
@@ -32,6 +34,36 @@ const ControlButtons = ({ toggleAnimation, updateDuration, duration, durationDis
         text.style.animation = ''
     }
 
+    // const freezeClick = (e) => {
+    //     if (freeze === true) {
+    //         e.stopPropagation();
+    //         e.preventDefault();
+    //         console.log('freeze me')
+    //     }
+    //     setTimeout(() => {
+    //         setFreeze(false)
+    //     }, 3000)
+    // }
+
+    const stopClick = (evt) => {
+        // evt.stopPropagation()
+        // evt.preventDefault()
+        // console.log(evt)
+        let play = document.querySelector('.play-btn')
+        play.style.pointerEvents = 'none'
+        console.log('click off')
+
+        setTimeout(() => {
+            play.style.pointerEvents = 'auto'
+            console.log('click on')
+
+        }, 3000)
+
+    }
+
+
+
+
     const changeButton = () => {
         if (toggle == 'on') {
             setPlayButton(stop)
@@ -42,7 +74,7 @@ const ControlButtons = ({ toggleAnimation, updateDuration, duration, durationDis
 
     const scrollTips = () => {
         let tips = document.querySelector(".details");
-        tips.scrollIntoView({behavior:'smooth', block:'center'});
+        tips.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
     useEffect(() => {
@@ -61,8 +93,9 @@ const ControlButtons = ({ toggleAnimation, updateDuration, duration, durationDis
                 <button className='db' id='100' onClick={updateDuration}>10min</button>
             </div>
 
-            {duration !== 'false' ? <div className="play-btn" onClick={toggleAnimation}><img className='play-img' src={playButton}></img></div> : <div className="play-btn" onClick={durationReminder}><img className='play-img' src={nostart}></img></div>}
+            {duration !== 'false' ? <div className="play-btn" onClick={(evt) => { toggleAnimation(); stopClick() }}><img className='play-img' src={playButton}></img></div> : <div className="play-btn" onClick={durationReminder}><img className='play-img' src={nostart}></img></div>}
             <div className='tips-scroll' onClick={scrollTips}>↓ Anchors, About, & Tips ↓</div>
+
         </div>
     );
 }

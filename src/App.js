@@ -22,6 +22,7 @@ const hideDistractions = () => {
   let title = document.querySelector('.page-title')
   let buttons = document.querySelector('.duration-row')
   let tips = document.querySelector('.tips-scroll')
+
   if (visuals.classList.contains('hidden') === false) {
     visuals.classList.add('hidden')
     details.classList.add('hidden')

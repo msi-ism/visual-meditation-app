@@ -19,6 +19,8 @@
     height: auto;
     border-radius: 100%;
     box-shadow: 0 0 20px rgba(0,0,0, .25);
+    pointer-events: auto;
+
 }
 
 
@@ -36,6 +38,7 @@
 .play-btn > .play-img {
     max-width: 75px;
     height: auto;
+    pointer-events: inherit !important;
 
 
 }
@@ -53,7 +56,6 @@
 }
 
 .duration-row {
-
     transition: visibility 2s 0s, opacity 1s linear;
     width: auto;
     height: auto;
@@ -69,7 +71,7 @@
     height: auto;
     width: auto;
     padding: 3px;
-    box-shadow: 0px 0px 5px black;
+    box-shadow: 0px 0px 2px black;
 }
 
 
@@ -88,7 +90,7 @@
 }
 
 .duration-row > .active-btn {
-    border: 2px solid rgb(72, 47, 102);
+    border: 2px solid rgb(40, 30, 53);
     box-shadow: inset 0px 0px 5px black;
 
     

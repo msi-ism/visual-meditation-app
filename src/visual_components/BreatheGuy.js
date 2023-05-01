@@ -2,7 +2,6 @@ import React from 'react';
 import { Player, Controls } from '@lottiefiles/react-lottie-player'
 import { useState, useEffect, useRef } from 'react'
 import animationJSON from '../lotties/inhale.json'
-import BreathText from './BreathText';
 import './BreatheGuy.css'
 import ControlButtons from '../ControlButtons';
 
@@ -107,13 +106,12 @@ const BreatheGuy = ({hideDistractions}) => {
             setDemoCounter(demoCounter => demoCounter + 1)
             console.log('this is democounter' + demoCounter)
             animation.current.play()
-            // setTimeout(stopAnimation, 5900)
         }
     }
 
   // ^ Message that plays once animation is complete
   const completeMessage = () => {
-    let affirmations = ['Nicely Done!', 'Great job!', 'Way to go!', 'You did it!']
+    let affirmations = ['Nicely Done!', 'Great job!', 'Way to go!', 'You did it!', 'Well Done!']
     let randAffirm = Math.floor(Math.random() * affirmations.length)
     let breathText = document.querySelector('.guy-breath')
     setBreath('Complete.')
@@ -130,8 +128,6 @@ const BreatheGuy = ({hideDistractions}) => {
 
   // ^ Used to re-render animation component when duration is changed to give live value
     useEffect(() => {
-
-        console.log(duration)
 
     }, [duration]);
 
@@ -161,7 +157,6 @@ const BreatheGuy = ({hideDistractions}) => {
                     if (event === 'frame') {
                         let newFrame = window.lottie.getRegisteredAnimations()[0].currentFrame
                         setFrame(Math.round(newFrame))
-
                     }
                      // ^ Starts breath text animation with inhale and clears timer for meditation countdown
                     if (frame === 2 && toggle == 'on') {
@@ -190,7 +185,6 @@ const BreatheGuy = ({hideDistractions}) => {
                         let currentDuration = durationDisplay => durationDisplay - 1
                         setBreathCount(currentBreath)
                         setDurationDisplay(currentDuration)
-                        console.log(duration)
                         
                     }
                     // ^ when animation finishes entirerly, please complete message and reset duration
