@@ -151,22 +151,22 @@ const Fish = ({hideDistractions}) => {
                     // ^ Finding mid point in animation to switch breath text
                     let halfway = Math.round(totalFrames / 2)
                     let setHold = () => {
-                        let breathText = document.querySelector('.med-breath')
-                        breathText.style.animation = 'fade 1.5s 1 ease-in-out'
+                        let breathText = document.querySelector('.fish-breath')
+                        breathText.style.animation = 'fade 2s 1 ease-in-out'
                         let hold = 'Hold'
                         setBreath(hold)
-                        setTimeout(cutAnimation, 1400)
+                        setTimeout(cutAnimation, 1700)
                     }
                     let setInhale = () => {
-                        let breathText = document.querySelector('.med-breath')
-                        breathText.style.animation = 'fade 4s 1 ease-in-out'
+                        let breathText = document.querySelector('.fish-breath')
+                        breathText.style.animation = 'fade 3.5s 1 ease-in-out'
                         let inhale = 'Inhale'
                         setBreath(inhale)
-                        setTimeout(cutAnimation, 3450)
+                        setTimeout(cutAnimation, 2900)
                     }
                     let setExhale = () => {
-                        let breathText = document.querySelector('.med-breath')
-                        breathText.style.animation = 'fade 4s 1 ease-in-out'
+                        let breathText = document.querySelector('.fish-breath')
+                        breathText.style.animation = 'fade 3.5s 1 ease-in-out'
                         let exhale = 'Exhale'
                         setBreath(exhale)
                         setTimeout(cutAnimation, 3200)
@@ -185,11 +185,11 @@ const Fish = ({hideDistractions}) => {
                     if (frame === 2 && toggle == 'on') {
                         clearCountdown()
                         setInhale()
-                        setTimeout(setHold, 3500)
+                        setTimeout(setHold, 3000)
                         console.log('1st frame')
                     }
                     // ^ switches breath text animation to 'exhale' at midpoint of animation
-                    if (frame === halfway && toggle == 'on') {
+                    if (frame === halfway + 1 && toggle == 'on') {
                         setExhale()
                         setTimeout(setHold, 3250)
                         console.log('exhale')
@@ -208,10 +208,10 @@ const Fish = ({hideDistractions}) => {
                     if (duration !== 'false' && event === 'complete') {
                         let app = document.body
                         app.style.overflow = 'scroll'
-                        completeMessage()
+                        setTimeout(completeMessage, 1000)
                         setToggle('off')
                         setDuration('false')
-                        setTimeout(hideDistractions, 3750)
+                        setTimeout(hideDistractions, 4750)
                     }
                 }}
             >
