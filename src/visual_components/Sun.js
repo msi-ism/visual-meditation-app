@@ -70,7 +70,7 @@ const Sun = ({hideDistractions}) => {
         } else {
             animation.current.stop()
             breathText.style.animation = ''
-            app.scroll.overflow = 'scroll'
+            app.style.overflow = 'scroll'
             hideDistractions()
             setDuration(durationDisplay)
             setToggle('off')
