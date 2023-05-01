@@ -38,9 +38,6 @@ const hideDistractions = () => {
   }
 }
 
-
-
-
 let animations = [<BreatheGuy hideDistractions={hideDistractions} />,
 <MeditationPeeps hideDistractions={hideDistractions}/>,
 <Seagull hideDistractions={hideDistractions}/>,

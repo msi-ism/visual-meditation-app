@@ -34,16 +34,6 @@ const ControlButtons = ({ toggleAnimation, updateDuration, duration, durationDis
         text.style.animation = ''
     }
 
-    // const freezeClick = (e) => {
-    //     if (freeze === true) {
-    //         e.stopPropagation();
-    //         e.preventDefault();
-    //         console.log('freeze me')
-    //     }
-    //     setTimeout(() => {
-    //         setFreeze(false)
-    //     }, 3000)
-    // }
 
     const stopClick = (evt) => {
         // evt.stopPropagation()
@@ -60,9 +50,6 @@ const ControlButtons = ({ toggleAnimation, updateDuration, duration, durationDis
         }, 3000)
 
     }
-
-
-
 
     const changeButton = () => {
         if (toggle == 'on') {
@@ -88,10 +75,15 @@ const ControlButtons = ({ toggleAnimation, updateDuration, duration, durationDis
         <div className='control-btns'>
             {duration !== 'false' ? <p className='duration-text'>Breaths Remaining: {durationDisplay}</p> : <p className='duration-reminder'>Please select a duration below.</p>}
             <div className='duration-row'>
-                <button className='db' id='10' onClick={updateDuration}>1min</button>
-                <button className='db' id='50' onClick={updateDuration}>5min</button>
-                <button className='db' id='100' onClick={updateDuration}>10min</button>
+                <button className='db' id='6' onClick={updateDuration}>1min</button>
+                <button className='db' id='30' onClick={updateDuration}>5min</button>
+                <button className='db' id='60' onClick={updateDuration}>10min</button>
+                {/* <div className='breath-length'>
+                <button className='bb' id='2500' onClick={updateLength}>3secs</button>
+                <button className='bb active-btn' id='5000' onClick={updateLength}>6secs</button>
+            </div> */}
             </div>
+     
 
             {duration !== 'false' ? <div className="play-btn" onClick={(evt) => { toggleAnimation(); stopClick() }}><img className='play-img' src={playButton}></img></div> : <div className="play-btn" onClick={durationReminder}><img className='play-img' src={nostart}></img></div>}
             <div className='tips-scroll' onClick={scrollTips}>↓ Anchors, About, & Tips ↓</div>

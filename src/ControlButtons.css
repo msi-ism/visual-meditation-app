@@ -61,6 +61,7 @@
     height: auto;
 }
 
+
 .duration-row > .db {
     border: 2px solid black;
     font-family: 'Schibsted Grotesk', sans-serif;
@@ -93,7 +94,11 @@
     border: 2px solid rgb(40, 30, 53);
     box-shadow: inset 0px 0px 5px black;
 
-    
+}
+
+.breath-length > .active-btn {
+    border: 2px solid rgb(40, 30, 53);
+    box-shadow: inset 0px 0px 5px black;
 
 }
 

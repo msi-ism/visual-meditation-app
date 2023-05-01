@@ -1,7 +1,7 @@
 import React from 'react';
 import { Player, Controls } from '@lottiefiles/react-lottie-player'
 import { useState, useEffect, useRef } from 'react'
-import animationJSON from '../lotties/inhale.json'
+import animationJSON from '../lotties/inhale12.json'
 import './BreatheGuy.css'
 import ControlButtons from '../ControlButtons';
 
@@ -99,6 +99,34 @@ const BreatheGuy = ({hideDistractions}) => {
         setDuration(newDuration)
         setDurationDisplay(newDuration)
     }
+    // const updateLength = (evt) => {
+    //     let currentLength = evt.target.id
+    //     let buttons = document.querySelectorAll('.bb')
+    //     console.log(buttons)
+    //     for (let i = 0; i < buttons.length; i++) {
+    //         if (buttons[i].classList.contains('active-btn')) {
+    //             buttons[i].classList.remove('active-btn')
+    //         }
+    //     }
+    //     evt.currentTarget.classList.toggle('active-btn')
+    //     if (currentLength == 5000) {
+    //         let newLength = 5000
+    //         animationJSON.fr = 40
+    //         setBreathLength(newLength)
+    //         setDurationDisplay(duration/2)
+    //         console.log(newLength)
+    //     } else if (currentLength == 2500) {
+    //         let newLength = 2500
+    //         animationJSON.fr = 60
+    //         console.log(animationJSON.fr)
+    //         setBreathLength(newLength)
+    //         setDurationDisplay(duration)
+    //         console.log(newLength)
+    //     }
+  
+    //     // setDuration(newLength)
+    //     // setDurationDisplay(newDuration)
+    // }
 
   // ^ script to play animation once on animation mount
     const playDemo = () => {
@@ -148,6 +176,14 @@ const BreatheGuy = ({hideDistractions}) => {
                     let totalFrames = window.lottie.getRegisteredAnimations()[0].totalFrames
                     // ^ Finding mid point in animation to switch breath text
                     let halfway = Math.round(totalFrames / 2)
+                    let setHold = () => {
+                        let breathText = document.querySelector('.guy-breath')
+                        breathText.style.animation = 'fade 3s 1 ease-in-out'
+                        let hold = 'Hold'
+                        setBreath(hold)
+                        setTimeout(cutAnimation, 2000)
+
+                    }
                     // ^ On load, play demo
                     if (event === 'load') {
                         console.log('lottie loaded')
@@ -160,22 +196,24 @@ const BreatheGuy = ({hideDistractions}) => {
                     }
                      // ^ Starts breath text animation with inhale and clears timer for meditation countdown
                     if (frame === 2 && toggle == 'on') {
-                        let breathText = document.querySelector('.guy-breath')
-                        breathText.style.animation = 'fade 3s 1 ease-in-out'
                         clearCountdown()
-                        setTimeout(cutAnimation, 2500)
+                        let breathText = document.querySelector('.guy-breath')
                         let inhale = 'Inhale'
+                        breathText.style.animation = 'fade 3s 1 ease-in-out'
                         setBreath(inhale)
+                        setTimeout(cutAnimation, 2450)
+                        setTimeout(setHold, 2800)
                         console.log('1st frame')
                     }
                     // ^ switches breath text animation to 'exhale' at midpoint of animation
                     if (frame === halfway && toggle == 'on') {
                         let breathText = document.querySelector('.guy-breath')
                         breathText.style.animation = 'fade 3s 1 ease-in-out'
-                        setTimeout(cutAnimation, 2500)
                         let exhale = 'Exhale'
                         setBreath(exhale)
-                        console.log('half-way')
+                        setTimeout(cutAnimation, 2450)
+                        setTimeout(setHold, 2800)
+                        console.log('exhale')
 
                     }
                     // ^ when event loops update Breathcount and duration state
