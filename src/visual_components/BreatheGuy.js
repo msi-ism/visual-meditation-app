@@ -182,7 +182,6 @@ const BreatheGuy = ({hideDistractions}) => {
                         let hold = 'Hold'
                         setBreath(hold)
                         setTimeout(cutAnimation, 2000)
-
                     }
                     // ^ On load, play demo
                     if (event === 'load') {
