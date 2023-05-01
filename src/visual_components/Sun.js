@@ -150,6 +150,27 @@ const Sun = ({hideDistractions}) => {
                     let totalFrames = window.lottie.getRegisteredAnimations()[0].totalFrames
                     // ^ Finding mid point in animation to switch breath text
                     let halfway = Math.round(totalFrames / 2)
+                    let setHold = () => {
+                        let breathText = document.querySelector('.sun-breath')
+                        breathText.style.animation = 'fade 2s 1 ease-in-out'
+                        let hold = 'Hold'
+                        setBreath(hold)
+                        setTimeout(cutAnimation, 1800)
+                    }
+                    let setInhale = () => {
+                        let breathText = document.querySelector('.sun-breath')
+                        breathText.style.animation = 'fade 3.5s 1 ease-in-out'
+                        let inhale = 'Inhale'
+                        setBreath(inhale)
+                        setTimeout(cutAnimation, 2800)
+                    }
+                    let setExhale = () => {
+                        let breathText = document.querySelector('.sun-breath')
+                        breathText.style.animation = 'fade 3.5s 1 ease-in-out'
+                        let exhale = 'Exhale'
+                        setBreath(exhale)
+                        setTimeout(cutAnimation, 3150)
+                    }
                     // ^ On load, play demo
                     if (event === 'load') {
                         console.log('lottie loaded')
@@ -162,22 +183,16 @@ const Sun = ({hideDistractions}) => {
                     }
                      // ^ Starts breath text animation with inhale and clears timer for meditation countdown
                     if (frame === 2 && toggle == 'on') {
-                        let breathText = document.querySelector('.sun-breath')
-                        breathText.style.animation = 'fade 3s 1 ease-in-out'
                         clearCountdown()
-                        setTimeout(cutAnimation, 2500)
-                        let inhale = 'Inhale'
-                        setBreath(inhale)
+                        setInhale()
+                        setTimeout(setHold, 2850)
                         console.log('1st frame')
                     }
                     // ^ switches breath text animation to 'exhale' at midpoint of animation
                     if (frame === halfway && toggle == 'on') {
-                        let breathText = document.querySelector('.sun-breath')
-                        breathText.style.animation = 'fade 3s 1 ease-in-out'
-                        setTimeout(cutAnimation, 2500)
-                        let exhale = 'Exhale'
-                        setBreath(exhale)
-                        console.log('half-way')
+                        setExhale()
+                        setTimeout(setHold, 3200)
+                        console.log('exhale')
 
                     }
                     // ^ when event loops update Breathcount and duration state
@@ -193,10 +208,10 @@ const Sun = ({hideDistractions}) => {
                     if (duration !== 'false' && event === 'complete') {
                         let app = document.body
                         app.style.overflow = 'scroll'
-                        completeMessage()
+                        setTimeout(completeMessage, 1000)
                         setToggle('off')
                         setDuration('false')
-                        setTimeout(hideDistractions, 3750)
+                        setTimeout(hideDistractions, 4750)
                     }
                 }}
             >
