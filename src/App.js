@@ -57,7 +57,7 @@ function App() {
       <div className='page-title'>
       <div className='titles'>
         <h1 className='main-title'>Open-Eye <img className='title-eye' src={eye}></img> Meditations</h1>
-        <p className='sub-title'>Built with 💜 by: M.S. Irby</p>
+        <p className='sub-title'>Built with 💜 by: <a href='https://msinclair.dev/'>M.S. Irby</a></p>
         </div>
       <div className='welcome-text'>
         <p>Welcome to this visual meditation tool!</p>

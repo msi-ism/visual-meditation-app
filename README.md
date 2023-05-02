@@ -18,7 +18,7 @@ The basic functionality of the app is as follows:
  - users are provided visual feedback from the animation and other UI elements as guidance through their meditation
 
 
- The app was built using React.
+ The app was built using React and [Lottiefiles](https://lottiefiles.com/) animation JSON which is rendered by the [react-lottie-player](https://www.npmjs.com/package/react-lottie-player). 
 
 
 ## Images
@@ -33,7 +33,11 @@ App Landing Page
     - Javascript
     - CSS 
     - HTML 
-    - Deployed to GitHub pages via the gh-pages npm package
+
+## Notable Packages/Libraries
+    - react-lottie-player
+    - gh-pages
+
 
 ## Planned Features
 - Add ability for the user to change the length of breaths by manipulating animation frame rate and duration
