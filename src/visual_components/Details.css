@@ -9,7 +9,7 @@
 }
 
 .details-title {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-family: 'DM Sans';
 }
 
@@ -20,13 +20,19 @@
     width: 75%;
     height: auto;
     padding: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     border-radius: 5%;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.381);
     font-family: 'DM Sans';
 }
 
+.tips-header {
+    margin: 0px;
+}
+
 h1 {
-    font-size: 26px;
+    font-size: 24px;
 }
 
 
