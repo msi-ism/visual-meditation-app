@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+Open-Eye Meditations
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Link to App
 
-## Available Scripts
+https://msinclair.dev/visual-meditation-app/
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+Meditation is about bringing our awareness to a single point & focusing on that point consciously instead of chasing the thoughts that pop into our heads.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Traditionally, the breath as the anchor point during meditation but focusing on the breath alone can be difficult for beginners because it is so subtle.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+I created this app to give the modern meditator a selection of anchor points that are a bit more palpable than the breath.
 
-### `npm test`
+The basic functionality of the app is as follows:
+ - users can choose from 6 animations to serve as the anchor or focus point of their meditation
+ - users can choose between a 1min, 5min, or 10min meditation duration
+ - users are provided visual feedback from the animation and other UI elements as guidance through their meditation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+ The app was built using React.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Images
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+App Landing Page
 
-### `npm run eject`
+<img src="public/homepage.png" width="400">
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Tech Stack
+    - React.js
+    - Javascript
+    - CSS 
+    - HTML 
+    - Deployed to GitHub pages via the gh-pages npm package
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Planned Features
+- Add ability for the user to change the length of breaths by manipulating animation frame rate and duration
+- Audio breath feedback cues
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
