@@ -52,14 +52,6 @@ function App() {
   const [animation, setAnimation] = useState(animations[0])
   const [demo, setDemo] = useState()
 
-  // const playDemo = (demo) => {
-
-  // }
-
-
-  // useEffect(() => {
-  // }, []);
-
   return (
     <div className="App">
       <div className='page-title'>
