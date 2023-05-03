@@ -70,7 +70,6 @@ const BreatheGuy = ({ hideDistractions }) => {
             animation.current.stop()
             breathText.style.animation = ''
             app.style.overflow = 'scroll'
-            releaseWakeState()
             hideDistractions()
             setDuration(durationDisplay)
             setToggle('off')
@@ -154,29 +153,29 @@ const BreatheGuy = ({ hideDistractions }) => {
         }, 3750)
     }
 
-    const canWakeLock = () => 'wakeLock' in navigator;
-    let wakelock;
-    async function lockWakeState() {
-        if (!canWakeLock()) return;
-        try {
-            wakelock = await navigator.wakeLock.request();
-            wakelock.addEventListener('release', () => {
-                console.log('Screen Wake State Locked:', !wakelock.released);
-            });
-            console.log('Screen Wake State Locked:', !wakelock.released);
-        } catch (e) {
-            console.error('Failed to lock wake state with reason:', e.message);
-        }
-    }
+    // const canWakeLock = () => 'wakeLock' in navigator;
+    // let wakelock;
+    // async function lockWakeState() {
+    //     if (!canWakeLock()) return;
+    //     try {
+    //         wakelock = await navigator.wakeLock.request();
+    //         wakelock.addEventListener('release', () => {
+    //             console.log('Screen Wake State Locked:', !wakelock.released);
+    //         });
+    //         console.log('Screen Wake State Locked:', !wakelock.released);
+    //     } catch (e) {
+    //         console.error('Failed to lock wake state with reason:', e.message);
+    //     }
+    // }
 
-    const stayWoke = async () => {
-        await lockWakeState()
-    }
+    // const stayWoke = async () => {
+    //     await lockWakeState()
+    // }
 
-    const releaseWakeState = () => {
-        if(wakelock) wakelock.release();
-        wakelock = null;
-      }
+    // const releaseWakeState = () => {
+    //     if(wakelock) wakelock.release();
+    //     wakelock = null;
+    //   }
 
 
     // ^ Used to re-render animation component when duration is changed to give live value
@@ -235,7 +234,6 @@ const BreatheGuy = ({ hideDistractions }) => {
                     }
                     // ^ Starts breath text animation with inhale and clears timer for meditation countdown
                     if (frame === 1 && toggle == 'on') {
-                        stayWoke()
                         clearCountdown()
                         setInhale()
                         console.log('1st frame')
@@ -271,7 +269,6 @@ const BreatheGuy = ({ hideDistractions }) => {
                         completeMessage()
                         setToggle('off')
                         setDuration('false')
-                        releaseWakeState()
                         setTimeout(hideDistractions, 3750)
                     }
                 }}
