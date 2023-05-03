@@ -4,7 +4,7 @@ import './Details.css'
 const Details = () => {
     return (
         <div id='details-div 'className='details'>
-            <h1 className='details-title'>About & Tips</h1>
+            <h1 className='details-title'><a href='https://github.com/msi-ism/visual-meditation-app' target="_blank" rel="noreferrer">About</a> & Tips</h1>
             <div className='details-box'>
                 <p>Meditation is about bringing our awareness to a single point & focusing on that point consciously instead of chasing the thoughts that pop into our heads.</p>
                 <p>Traditionally, the breath is used as the anchor point during meditation but focusing on the breath alone can be difficult for new practitioners because it is so subtle.</p>
