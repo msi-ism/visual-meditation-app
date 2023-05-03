@@ -65,7 +65,7 @@ const BreatheGuy = ({ hideDistractions }) => {
                 setToggle('on')
                 console.log(toggle)
                 animation.current.play()
-            }, 2900)
+            }, 2800)
         } else {
             animation.current.stop()
             breathText.style.animation = ''
