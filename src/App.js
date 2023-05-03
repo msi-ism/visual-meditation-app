@@ -1,7 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
 import HeartShape from './visual_components/HeartShape';
-import AudioVisualizer from './AudioVisualizer';
 import Seagull from './visual_components/Seagull';
 import Fish from './visual_components/Fish'
 import Swing from './visual_components/Swing'
@@ -11,9 +9,8 @@ import Sun from './visual_components/Sun';
 import Circle from './visual_components/Circle';
 import Details from './visual_components/Details';
 import eye from './images/eye.png'
-import BreathText from './visual_components/BreathText';
 import VisualChooser from './VisualChooser';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 
 const hideDistractions = () => {
@@ -50,14 +47,13 @@ let animations = [<BreatheGuy hideDistractions={hideDistractions} />,
 
 function App() {
   const [animation, setAnimation] = useState(animations[0])
-  const [demo, setDemo] = useState()
 
   return (
     <div className="App">
       <div className='page-title'>
       <div className='titles'>
-        <h1 className='main-title'>Open-Eye <img className='title-eye' src={eye}></img> Meditations</h1>
-        <p className='sub-title'>Built with 💜 by: <a href='https://msinclair.dev/'>M.S. Irby</a></p>
+        <h1 className='main-title'>Open-Eye <img alt='eye in title' className='title-eye' src={eye}></img> Meditations</h1>
+        <p className='sub-title'>Built with 💜 by: <a href='https://msinclair.dev/' target="_blank" rel="noreferrer">M.S. Irby</a></p>
         </div>
       <div className='welcome-text'>
         <p>Welcome to this visual meditation tool!</p>

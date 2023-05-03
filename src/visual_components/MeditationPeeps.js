@@ -66,7 +66,7 @@ const MeditationPeeps = ({hideDistractions}) => {
                 setToggle('on')
                 console.log(toggle)
                 animation.current.play()
-            }, 2900)
+            }, 2400)
         } else {
             animation.current.stop()
             breathText.style.animation = ''
@@ -149,26 +149,27 @@ const MeditationPeeps = ({hideDistractions}) => {
                     let totalFrames = window.lottie.getRegisteredAnimations()[0].totalFrames
                     // ^ Finding mid point in animation to switch breath text
                     let halfway = Math.round(totalFrames / 2)
+                    let quarter = Math.round(halfway/2)
                     let setHold = () => {
                         let breathText = document.querySelector('.med-breath')
-                        breathText.style.animation = 'fade 1.5s 1 ease-in-out'
+                        breathText.style.animation = 'fade 2s 1 ease-in-out'
                         let hold = 'Hold'
                         setBreath(hold)
-                        setTimeout(cutAnimation, 1400)
+                        setTimeout(cutAnimation, 2000)
                     }
                     let setInhale = () => {
                         let breathText = document.querySelector('.med-breath')
-                        breathText.style.animation = 'fade 4s 1 ease-in-out'
+                        breathText.style.animation = 'fade 2.5s 1 ease-in-out'
                         let inhale = 'Inhale'
                         setBreath(inhale)
-                        setTimeout(cutAnimation, 3450)
+                        setTimeout(cutAnimation, 2300)
                     }
                     let setExhale = () => {
                         let breathText = document.querySelector('.med-breath')
-                        breathText.style.animation = 'fade 4s 1 ease-in-out'
+                        breathText.style.animation = 'fade 2.5s 1 ease-in-out'
                         let exhale = 'Exhale'
                         setBreath(exhale)
-                        setTimeout(cutAnimation, 3200)
+                        setTimeout(cutAnimation, 2300)
                     }
                     // ^ On load, play demo
                     if (event === 'load') {
@@ -181,18 +182,25 @@ const MeditationPeeps = ({hideDistractions}) => {
                         setFrame(Math.round(newFrame))
                     }
                      // ^ Starts breath text animation with inhale and clears timer for meditation countdown
-                    if (frame === 2 && toggle == 'on') {
+                    if (frame === 10 && toggle == 'on') {
                         clearCountdown()
                         setInhale()
-                        setTimeout(setHold, 3500)
                         console.log('1st frame')
                     }
                     // ^ switches breath text animation to 'exhale' at midpoint of animation
-                    if (frame === halfway && toggle == 'on') {
+                    if (frame === quarter + 15 && toggle == 'on') {
+                        setHold()
+                        console.log('Inhale Hold')
+                    }
+                     // ^ Starts breath text animation with inhale and clears timer for meditation countdown
+                    if (frame === halfway + 10 && toggle == 'on') {
                         setExhale()
-                        setTimeout(setHold, 3250)
-                        console.log('exhale')
-
+                        console.log('halfway')
+                    }
+                    // ^ switches breath text animation to 'exhale' at midpoint of animation
+                    if (frame === halfway + quarter + 15 && toggle == 'on') {
+                        setHold()
+                        console.log('Exhale Hold')
                     }
                     // ^ when event loops update Breathcount and duration state
                     if (event === 'loop') {
@@ -207,10 +215,10 @@ const MeditationPeeps = ({hideDistractions}) => {
                     if (duration !== 'false' && event === 'complete') {
                         let app = document.body
                         app.style.overflow = 'scroll'
-                        completeMessage()
+                        setTimeout(completeMessage, 1000)
                         setToggle('off')
                         setDuration('false')
-                        setTimeout(hideDistractions, 3750)
+                        setTimeout(hideDistractions, 4750)
                     }
                 }}
             >

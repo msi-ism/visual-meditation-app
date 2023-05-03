@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import start from './images/start.png'
 import nostart from './images/nostart.png'
 import stop from './images/stop.png'
-import scrollDown from './images/scroll.png'
 
 const ControlButtons = ({ toggleAnimation, updateDuration, duration, durationDisplay, toggle, freeze, setFreeze }) => {
     const [playButton, setPlayButton] = useState(start)
@@ -52,7 +51,7 @@ const ControlButtons = ({ toggleAnimation, updateDuration, duration, durationDis
     }
 
     const changeButton = () => {
-        if (toggle == 'on') {
+        if (toggle === 'on') {
             setPlayButton(stop)
         } else {
             setPlayButton(start)
@@ -85,7 +84,7 @@ const ControlButtons = ({ toggleAnimation, updateDuration, duration, durationDis
             </div>
      
 
-            {duration !== 'false' ? <div className="play-btn" onClick={(evt) => { toggleAnimation(); stopClick() }}><img className='play-img' src={playButton}></img></div> : <div className="play-btn" onClick={durationReminder}><img className='play-img' src={nostart}></img></div>}
+            {duration !== 'false' ? <div alt='play button' className="play-btn" onClick={(evt) => { toggleAnimation(); stopClick() }}><img alt='play button' className='play-img' src={playButton}></img></div> : <div alt='play button' className="play-btn" onClick={durationReminder}><img alt='standby button' className='play-img' src={nostart}></img></div>}
             <div className='tips-scroll' onClick={scrollTips}>↓ Anchors, About, & Tips ↓</div>
 
         </div>

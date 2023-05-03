@@ -15,9 +15,9 @@
     align-items: center;
     cursor: pointer;
     animation: '';
-    max-width: 75px;
-    height: auto;
-    border-radius: 100%;
+    width: 70px;
+    height: 20px;
+    border-radius: 80%;
     box-shadow: 0 0 20px rgba(0,0,0, .25);
     pointer-events: auto;
 
@@ -83,6 +83,7 @@
     animation: '';
     margin: 0;
     font-family: 'DM Sans';
+    width: 100%;
 }
 
 .db:hover{
@@ -107,6 +108,7 @@
     animation: '';
     margin: 0;
     font-family: 'DM Sans';
+    width: 100%;
 }
 
   
@@ -140,8 +142,8 @@
         align-items: center;
         cursor: pointer;
         animation: '';
-        width: auto;
-        height: auto;
+        width: 70px;
+        height: 20px;
         border-radius: 80%;
         box-shadow: 0 0 20px rgba(0,0,0, .25);
     }

@@ -7,8 +7,8 @@ const Details = () => {
             <h1 className='details-title'>About & Tips</h1>
             <div className='details-box'>
                 <p>Meditation is about bringing our awareness to a single point & focusing on that point consciously instead of chasing the thoughts that pop into our heads.</p>
-                <p>Traditionally, the breath as the anchor point during meditation but focusing on the breath alone can be difficult for beginners because it is so subtle..</p>
-                <p>I created this app to give the modern meditator a selection of anchor points that are a bit more palpable than the breath.</p>
+                <p>Traditionally, the breath is used as the anchor point during meditation but focusing on the breath alone can be difficult for new practitioners because it is so subtle.</p>
+                <p>I created this app in an attempt to solve that problem by pairing breath based meditation with animations that are engaging enough to hold your attention but simple enough to not send your mind on a tangent.</p>
                 <h3 className='tips-header'>Tips</h3>
                 <p>1. Find a comfortable position where you can view your device with a neutral head position.</p>
                 <p>2. Bring your awareness to the animation & sync your breathing with its motion.</p>
