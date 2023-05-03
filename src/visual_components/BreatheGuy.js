@@ -5,7 +5,7 @@ import animationJSON from '../lotties/inhale12.json'
 import './BreatheGuy.css'
 import ControlButtons from '../ControlButtons';
 
-const BreatheGuy = ({hideDistractions}) => {
+const BreatheGuy = ({ hideDistractions }) => {
     const [duration, setDuration] = useState('false')
     // ^ Controls the state of the animations
     const [toggle, setToggle] = useState('off')
@@ -58,7 +58,7 @@ const BreatheGuy = ({hideDistractions}) => {
         playButton.style.animation = ''
         console.log(duration)
         if (toggle == 'off' && duration !== 'false') {
-            window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
+            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
             app.style.overflow = 'hidden'
             countdown()
             setTimeout(() => {
@@ -70,19 +70,20 @@ const BreatheGuy = ({hideDistractions}) => {
             animation.current.stop()
             breathText.style.animation = ''
             app.style.overflow = 'scroll'
+            releaseWakeState()
             hideDistractions()
             setDuration(durationDisplay)
             setToggle('off')
         }
     }
 
-  // ^ Stops the CSS animation on breath instructions so that it can be triggered again at next interval
+    // ^ Stops the CSS animation on breath instructions so that it can be triggered again at next interval
     const cutAnimation = () => {
         let breathText = document.querySelector('.guy-breath')
         breathText.style.animation = ''
 
     }
-  // ^ Updates the duration of the animation object based on the clicked buttons ID
+    // ^ Updates the duration of the animation object based on the clicked buttons ID
     const updateDuration = (evt) => {
         let newDuration = evt.target.id
         let buttons = document.querySelectorAll('.db')
@@ -123,12 +124,12 @@ const BreatheGuy = ({hideDistractions}) => {
     //         setDurationDisplay(duration)
     //         console.log(newLength)
     //     }
-  
+
     //     // setDuration(newLength)
     //     // setDurationDisplay(newDuration)
     // }
 
-  // ^ script to play animation once on animation mount
+    // ^ script to play animation once on animation mount
     const playDemo = () => {
         if (demoCounter < 1) {
             setDemoCounter(demoCounter => demoCounter + 1)
@@ -137,24 +138,48 @@ const BreatheGuy = ({hideDistractions}) => {
         }
     }
 
-  // ^ Message that plays once animation is complete
-  const completeMessage = () => {
-    let affirmations = ['Nicely Done!', 'Great job!', 'Way to go!', 'You did it!', 'Well Done!']
-    let randAffirm = Math.floor(Math.random() * affirmations.length)
-    let breathText = document.querySelector('.guy-breath')
-    setBreath('Complete.')
-    breathText.style.animation = 'fade 3s 1 ease-in-out'
-    setTimeout(() => {
-        breathText.style.animation = ''
-    }, 3150)
-    setTimeout(() => {
+    // ^ Message that plays once animation is complete
+    const completeMessage = () => {
+        let affirmations = ['Nicely Done!', 'Great job!', 'Way to go!', 'You did it!', 'Well Done!']
+        let randAffirm = Math.floor(Math.random() * affirmations.length)
+        let breathText = document.querySelector('.guy-breath')
+        setBreath('Complete.')
         breathText.style.animation = 'fade 3s 1 ease-in-out'
-        setBreath(affirmations[randAffirm])
-    }, 3750)
-}
+        setTimeout(() => {
+            breathText.style.animation = ''
+        }, 3150)
+        setTimeout(() => {
+            breathText.style.animation = 'fade 3s 1 ease-in-out'
+            setBreath(affirmations[randAffirm])
+        }, 3750)
+    }
+
+    const canWakeLock = () => 'wakeLock' in navigator;
+    let wakelock;
+    async function lockWakeState() {
+        if (!canWakeLock()) return;
+        try {
+            wakelock = await navigator.wakeLock.request();
+            wakelock.addEventListener('release', () => {
+                console.log('Screen Wake State Locked:', !wakelock.released);
+            });
+            console.log('Screen Wake State Locked:', !wakelock.released);
+        } catch (e) {
+            console.error('Failed to lock wake state with reason:', e.message);
+        }
+    }
+
+    const stayWoke = async () => {
+        await lockWakeState()
+    }
+
+    const releaseWakeState = () => {
+        if(wakelock) wakelock.release();
+        wakelock = null;
+      }
 
 
-  // ^ Used to re-render animation component when duration is changed to give live value
+    // ^ Used to re-render animation component when duration is changed to give live value
     useEffect(() => {
 
     }, [duration]);
@@ -170,13 +195,13 @@ const BreatheGuy = ({hideDistractions}) => {
                 autoplay={false}
                 loop={duration}
                 src={animationJSON}
-                style={{ height: '400px', width: '350px'}}
+                style={{ height: '400px', width: '350px' }}
                 onEvent={event => {
                     // ^ Grabbing total frames in animation from lottie object
                     let totalFrames = window.lottie.getRegisteredAnimations()[0].totalFrames
                     // ^ Finding mid point in animation to switch breath text
                     let halfway = Math.round(totalFrames / 2)
-                    let quarter = Math.round(halfway/2)
+                    let quarter = Math.round(halfway / 2)
                     let setHold = () => {
                         let breathText = document.querySelector('.guy-breath')
                         breathText.style.animation = 'fade 2s 1 ease-in-out'
@@ -208,8 +233,9 @@ const BreatheGuy = ({hideDistractions}) => {
                         let newFrame = window.lottie.getRegisteredAnimations()[0].currentFrame
                         setFrame(Math.round(newFrame))
                     }
-                     // ^ Starts breath text animation with inhale and clears timer for meditation countdown
+                    // ^ Starts breath text animation with inhale and clears timer for meditation countdown
                     if (frame === 1 && toggle == 'on') {
+                        stayWoke()
                         clearCountdown()
                         setInhale()
                         console.log('1st frame')
@@ -219,7 +245,7 @@ const BreatheGuy = ({hideDistractions}) => {
                         setHold()
                         console.log('Inhale Hold')
                     }
-                     // ^ Starts breath text animation with inhale and clears timer for meditation countdown
+                    // ^ Starts breath text animation with inhale and clears timer for meditation countdown
                     if (frame === halfway + 1 && toggle == 'on') {
                         setExhale()
                         console.log('halfway')
@@ -236,7 +262,7 @@ const BreatheGuy = ({hideDistractions}) => {
                         let currentDuration = durationDisplay => durationDisplay - 1
                         setBreathCount(currentBreath)
                         setDurationDisplay(currentDuration)
-                        
+
                     }
                     // ^ when animation finishes entirerly, please complete message and reset duration
                     if (duration !== 'false' && event === 'complete') {
@@ -245,6 +271,7 @@ const BreatheGuy = ({hideDistractions}) => {
                         completeMessage()
                         setToggle('off')
                         setDuration('false')
+                        releaseWakeState()
                         setTimeout(hideDistractions, 3750)
                     }
                 }}

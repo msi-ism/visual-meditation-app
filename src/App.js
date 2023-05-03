@@ -10,7 +10,7 @@ import Circle from './visual_components/Circle';
 import Details from './visual_components/Details';
 import eye from './images/eye.png'
 import VisualChooser from './VisualChooser';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 const hideDistractions = () => {
@@ -36,28 +36,36 @@ const hideDistractions = () => {
 }
 
 let animations = [<BreatheGuy hideDistractions={hideDistractions} />,
-<MeditationPeeps hideDistractions={hideDistractions}/>,
-<Seagull hideDistractions={hideDistractions}/>,
-<Fish hideDistractions={hideDistractions}/>, 
-<Sun hideDistractions={hideDistractions}/>,
-<Circle hideDistractions={hideDistractions}/>,
+<MeditationPeeps hideDistractions={hideDistractions} />,
+<Seagull hideDistractions={hideDistractions} />,
+<Fish hideDistractions={hideDistractions} />,
+<Sun hideDistractions={hideDistractions} />,
+<Circle hideDistractions={hideDistractions} />,
 <Swing />,
 <HeartShape />]
+
+
+
 
 
 function App() {
   const [animation, setAnimation] = useState(animations[0])
 
+  useEffect(() => {
+
+  }, []);
+
+
   return (
     <div className="App">
       <div className='page-title'>
-      <div className='titles'>
-        <h1 className='main-title'>Open-Eye <img alt='eye in title' className='title-eye' src={eye}></img> Meditations</h1>
-        <p className='sub-title'>Built with 💜 by: <a href='https://msinclair.dev/' target="_blank" rel="noreferrer">M.S. Irby</a></p>
+        <div className='titles'>
+          <h1 className='main-title'>Open-Eye <img alt='eye in title' className='title-eye' src={eye}></img> Meditations</h1>
+          <p className='sub-title'>Built with 💜 by: <a href='https://msinclair.dev/' target="_blank" rel="noreferrer">M.S. Irby</a></p>
         </div>
-      <div className='welcome-text'>
-        <p>Welcome to this visual meditation tool!</p>
-        <p>Choose an animation to serve as an anchor, set a duration, & click 'start' to begin.</p>
+        <div className='welcome-text'>
+          <p>Welcome to this visual meditation tool!</p>
+          <p>Choose an animation to serve as an anchor, set a duration, & click 'start' to begin.</p>
         </div>
       </div>
       <div className='choice-container'>
