@@ -99,34 +99,6 @@ const BreatheGuy = ({ hideDistractions }) => {
         setDuration(newDuration)
         setDurationDisplay(newDuration)
     }
-    // const updateLength = (evt) => {
-    //     let currentLength = evt.target.id
-    //     let buttons = document.querySelectorAll('.bb')
-    //     console.log(buttons)
-    //     for (let i = 0; i < buttons.length; i++) {
-    //         if (buttons[i].classList.contains('active-btn')) {
-    //             buttons[i].classList.remove('active-btn')
-    //         }
-    //     }
-    //     evt.currentTarget.classList.toggle('active-btn')
-    //     if (currentLength == 5000) {
-    //         let newLength = 5000
-    //         animationJSON.fr = 40
-    //         setBreathLength(newLength)
-    //         setDurationDisplay(duration/2)
-    //         console.log(newLength)
-    //     } else if (currentLength == 2500) {
-    //         let newLength = 2500
-    //         animationJSON.fr = 60
-    //         console.log(animationJSON.fr)
-    //         setBreathLength(newLength)
-    //         setDurationDisplay(duration)
-    //         console.log(newLength)
-    //     }
-
-    //     // setDuration(newLength)
-    //     // setDurationDisplay(newDuration)
-    // }
 
     // ^ script to play animation once on animation mount
     const playDemo = () => {
@@ -152,30 +124,6 @@ const BreatheGuy = ({ hideDistractions }) => {
             setBreath(affirmations[randAffirm])
         }, 3750)
     }
-
-    // const canWakeLock = () => 'wakeLock' in navigator;
-    // let wakelock;
-    // async function lockWakeState() {
-    //     if (!canWakeLock()) return;
-    //     try {
-    //         wakelock = await navigator.wakeLock.request();
-    //         wakelock.addEventListener('release', () => {
-    //             console.log('Screen Wake State Locked:', !wakelock.released);
-    //         });
-    //         console.log('Screen Wake State Locked:', !wakelock.released);
-    //     } catch (e) {
-    //         console.error('Failed to lock wake state with reason:', e.message);
-    //     }
-    // }
-
-    // const stayWoke = async () => {
-    //     await lockWakeState()
-    // }
-
-    // const releaseWakeState = () => {
-    //     if(wakelock) wakelock.release();
-    //     wakelock = null;
-    //   }
 
 
     // ^ Used to re-render animation component when duration is changed to give live value
@@ -238,17 +186,17 @@ const BreatheGuy = ({ hideDistractions }) => {
                         setInhale()
                         console.log('1st frame')
                     }
-                    // ^ switches breath text animation to 'exhale' at midpoint of animation
+                    // ^ switches breath text animation to 'hold' at quarter point of animation
                     if (frame === quarter + 20 && toggle == 'on') {
                         setHold()
                         console.log('Inhale Hold')
                     }
-                    // ^ Starts breath text animation with inhale and clears timer for meditation countdown
+                    /// ^ switches breath text animation to 'exhale' at midpoint of animation
                     if (frame === halfway + 1 && toggle == 'on') {
                         setExhale()
                         console.log('halfway')
                     }
-                    // ^ switches breath text animation to 'exhale' at midpoint of animation
+                    // ^ switches breath text animation to 'hold' at last quarter of animation
                     if (frame === halfway + quarter + 10 && toggle == 'on') {
                         setHold()
                         console.log('Exhale Hold')
@@ -262,7 +210,7 @@ const BreatheGuy = ({ hideDistractions }) => {
                         setDurationDisplay(currentDuration)
 
                     }
-                    // ^ when animation finishes entirerly, please complete message and reset duration
+                    // ^ when animation finishes entirely, please complete message and reset duration
                     if (duration !== 'false' && event === 'complete') {
                         let app = document.body
                         app.style.overflow = 'scroll'

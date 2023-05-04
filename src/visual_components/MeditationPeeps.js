@@ -6,8 +6,8 @@ import BreathText from './BreathText';
 import './MeditationPeeps.css'
 import ControlButtons from '../ControlButtons';
 
-const MeditationPeeps = ({hideDistractions}) => {
-       const [duration, setDuration] = useState('false')
+const MeditationPeeps = ({ hideDistractions }) => {
+    const [duration, setDuration] = useState('false')
     // ^ Controls the state of the animations
     const [toggle, setToggle] = useState('off')
     // ^ Capture the current frame in the animation to trigger breath change
@@ -59,7 +59,7 @@ const MeditationPeeps = ({hideDistractions}) => {
         playButton.style.animation = ''
         console.log(duration)
         if (toggle == 'off' && duration !== 'false') {
-            window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
+            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
             app.style.overflow = 'hidden'
             countdown()
             setTimeout(() => {
@@ -77,13 +77,13 @@ const MeditationPeeps = ({hideDistractions}) => {
         }
     }
 
-  // ^ Stops the CSS animation on breath instructions so that it can be triggered again at next interval
+    // ^ Stops the CSS animation on breath instructions so that it can be triggered again at next interval
     const cutAnimation = () => {
         let breathText = document.querySelector('.med-breath')
         breathText.style.animation = ''
 
     }
-  // ^ Updates the duration of the animation object based on the clicked buttons ID
+    // ^ Updates the duration of the animation object based on the clicked buttons ID
     const updateDuration = (evt) => {
         let newDuration = evt.target.id
         let buttons = document.querySelectorAll('.db')
@@ -101,7 +101,7 @@ const MeditationPeeps = ({hideDistractions}) => {
         setDurationDisplay(newDuration)
     }
 
-  // ^ script to play animation once on animation mount
+    // ^ script to play animation once on animation mount
     const playDemo = () => {
         if (demoCounter < 1) {
             setDemoCounter(demoCounter => demoCounter + 1)
@@ -110,24 +110,24 @@ const MeditationPeeps = ({hideDistractions}) => {
         }
     }
 
-  // ^ Message that plays once animation is complete
-  const completeMessage = () => {
-    let affirmations = ['Nicely Done!', 'Great job!', 'Way to go!', 'You did it!', 'Well Done!']
-    let randAffirm = Math.floor(Math.random() * affirmations.length)
-    let breathText = document.querySelector('.med-breath')
-    setBreath('Complete.')
-    breathText.style.animation = 'fade 3s 1 ease-in-out'
-    setTimeout(() => {
-        breathText.style.animation = ''
-    }, 3150)
-    setTimeout(() => {
+    // ^ Message that plays once animation is complete
+    const completeMessage = () => {
+        let affirmations = ['Nicely Done!', 'Great job!', 'Way to go!', 'You did it!', 'Well Done!']
+        let randAffirm = Math.floor(Math.random() * affirmations.length)
+        let breathText = document.querySelector('.med-breath')
+        setBreath('Complete.')
         breathText.style.animation = 'fade 3s 1 ease-in-out'
-        setBreath(affirmations[randAffirm])
-    }, 3750)
-}
+        setTimeout(() => {
+            breathText.style.animation = ''
+        }, 3150)
+        setTimeout(() => {
+            breathText.style.animation = 'fade 3s 1 ease-in-out'
+            setBreath(affirmations[randAffirm])
+        }, 3750)
+    }
 
 
-  // ^ Used to re-render animation component when duration is changed to give live value
+    // ^ Used to re-render animation component when duration is changed to give live value
     useEffect(() => {
 
     }, [duration]);
@@ -143,13 +143,13 @@ const MeditationPeeps = ({hideDistractions}) => {
                 autoplay={false}
                 loop={duration}
                 src={animationJSON}
-                style={{ height: '400px', width: '375px', padding: '0px', background: 'linear-gradient(180deg,  #e1e6b59c,#e2d1de9d,#dec5c5b6,#bacad4a8,#dbc4dfaa,#f7f2f2ac 85%)', animation: 'AnimationName'}}
+                style={{ height: '400px', width: '375px', padding: '0px', background: 'linear-gradient(180deg,  #e1e6b59c,#e2d1de9d,#dec5c5b6,#bacad4a8,#dbc4dfaa,#f7f2f2ac 85%)', animation: 'AnimationName' }}
                 onEvent={event => {
                     // ^ Grabbing total frames in animation from lottie object
                     let totalFrames = window.lottie.getRegisteredAnimations()[0].totalFrames
                     // ^ Finding mid point in animation to switch breath text
                     let halfway = Math.round(totalFrames / 2)
-                    let quarter = Math.round(halfway/2)
+                    let quarter = Math.round(halfway / 2)
                     let setHold = () => {
                         let breathText = document.querySelector('.med-breath')
                         breathText.style.animation = 'fade 2s 1 ease-in-out'
@@ -181,23 +181,23 @@ const MeditationPeeps = ({hideDistractions}) => {
                         let newFrame = window.lottie.getRegisteredAnimations()[0].currentFrame
                         setFrame(Math.round(newFrame))
                     }
-                     // ^ Starts breath text animation with inhale and clears timer for meditation countdown
+                    // ^ Starts breath text animation with inhale and clears timer for meditation countdown
                     if (frame === 10 && toggle == 'on') {
                         clearCountdown()
                         setInhale()
                         console.log('1st frame')
                     }
-                    // ^ switches breath text animation to 'exhale' at midpoint of animation
+                    // ^ switches breath text animation to 'hold' at quarter point of animation
                     if (frame === quarter + 15 && toggle == 'on') {
                         setHold()
                         console.log('Inhale Hold')
                     }
-                     // ^ Starts breath text animation with inhale and clears timer for meditation countdown
+                    /// ^ switches breath text animation to 'exhale' at midpoint of animation
                     if (frame === halfway + 10 && toggle == 'on') {
                         setExhale()
                         console.log('halfway')
                     }
-                    // ^ switches breath text animation to 'exhale' at midpoint of animation
+                    // ^ switches breath text animation to 'hold' at last quarter of animation
                     if (frame === halfway + quarter + 15 && toggle == 'on') {
                         setHold()
                         console.log('Exhale Hold')
@@ -209,9 +209,9 @@ const MeditationPeeps = ({hideDistractions}) => {
                         let currentDuration = durationDisplay => durationDisplay - 1
                         setBreathCount(currentBreath)
                         setDurationDisplay(currentDuration)
-                        
+
                     }
-                    // ^ when animation finishes entirerly, please complete message and reset duration
+                    // ^ when animation finishes entirely, please complete message and reset duration
                     if (duration !== 'false' && event === 'complete') {
                         let app = document.body
                         app.style.overflow = 'scroll'

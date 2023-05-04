@@ -188,17 +188,17 @@ const Fish = ({hideDistractions}) => {
                         setInhale()
                         console.log('1st frame')
                     }
-                    // ^ switches breath text animation to 'exhale' at midpoint of animation
+                   // ^ switches breath text animation to 'hold' at quarter point of animation
                     if (frame === quarter + 5 && toggle == 'on') {
                         setHold()
                         console.log('Inhale Hold')
                     }
-                     // ^ Starts breath text animation with inhale and clears timer for meditation countdown
+                  /// ^ switches breath text animation to 'exhale' at midpoint of animation
                     if (frame === halfway + 3 && toggle == 'on') {
                         setExhale()
                         console.log('halfway')
                     }
-                    // ^ switches breath text animation to 'exhale' at midpoint of animation
+             // ^ switches breath text animation to 'hold' at last quarter of animation
                     if (frame === halfway + quarter + 2 && toggle == 'on') {
                         setHold()
                         console.log('Exhale Hold')

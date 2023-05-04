@@ -187,21 +187,11 @@ const Seagull = ({hideDistractions}) => {
                         setInhale()
                         console.log('1st frame')
                     }
-                    // // ^ switches breath text animation to 'exhale' at midpoint of animation
-                    // if (frame === quarter + 5 && toggle == 'on') {
-                    //     setHold()
-                    //     console.log('Inhale Hold')
-                    // }
-                     // ^ Starts breath text animation with inhale and clears timer for meditation countdown
+                  /// ^ switches breath text animation to 'exhale' at midpoint of animation
                     if (frame === halfway && toggle == 'on') {
                         setExhale()
                         console.log('halfway')
                     }
-                    // // ^ switches breath text animation to 'exhale' at midpoint of animation
-                    // if (frame === halfway + quarter + 5 && toggle == 'on') {
-                    //     setHold()
-                    //     console.log('Exhale Hold')
-                    // }
                     // ^ when event loops update Breathcount and duration state
                     if (event === 'loop') {
                         console.log('loop complete')
@@ -211,7 +201,7 @@ const Seagull = ({hideDistractions}) => {
                         setDurationDisplay(currentDuration)
                         
                     }
-                    // ^ when animation finishes entirerly, please complete message and reset duration
+                    // ^ when animation finishes entirely, please complete message and reset duration
                     if (duration !== 'false' && event === 'complete') {
                         let app = document.body
                         app.style.overflow = 'scroll'

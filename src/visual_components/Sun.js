@@ -188,7 +188,7 @@ const Sun = ({hideDistractions}) => {
                         setInhale()
                         console.log('1st frame')
                     }
-                     // ^ Starts breath text animation with inhale and clears timer for meditation countdown
+                    // ^ switches breath text animation to 'exhale' at midpoint of animation
                     if (frame === halfway - 5 && toggle == 'on') {
                         setExhale()
                         console.log('halfway')
@@ -202,7 +202,7 @@ const Sun = ({hideDistractions}) => {
                         setDurationDisplay(currentDuration)
                         
                     }
-                    // ^ when animation finishes entirerly, please complete message and reset duration
+                    // ^ when animation finishes entirely, please complete message and reset duration
                     if (duration !== 'false' && event === 'complete') {
                         let app = document.body
                         app.style.overflow = 'scroll'

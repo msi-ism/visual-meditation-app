@@ -187,17 +187,17 @@ const Circle = ({hideDistractions}) => {
                         setInhale()
                         console.log('1st frame')
                     }
-                    // ^ switches breath text animation to 'exhale' at midpoint of animation
+                    // ^ switches breath text animation to 'hold' at quarter point of animation
                     if (frame === quarter && toggle == 'on') {
                         setHold()
                         console.log('Inhale Hold')
                     }
-                     // ^ Starts breath text animation with inhale and clears timer for meditation countdown
+                  /// ^ switches breath text animation to 'exhale' at midpoint of animation
                     if (frame === halfway && toggle == 'on') {
                         setExhale()
                         console.log('halfway')
                     }
-                    // ^ switches breath text animation to 'exhale' at midpoint of animation
+                    // ^ switches breath text animation to 'hold' at last quarter of animation
                     if (frame === halfway + quarter && toggle == 'on') {
                         setHold()
                         console.log('Exhale Hold')
