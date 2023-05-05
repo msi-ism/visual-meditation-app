@@ -2,7 +2,6 @@ import React from 'react';
 import { Player, Controls } from '@lottiefiles/react-lottie-player'
 import { useState, useEffect, useRef } from 'react'
 import animationJSON from '../lotties/meditation_peeps.json'
-import BreathText from './BreathText';
 import './MeditationPeeps.css'
 import ControlButtons from '../ControlButtons';
 

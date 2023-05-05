@@ -31,16 +31,12 @@ const VisualChooser = ({setAnimation, animations}) => {
         <div className='choice-div'>
             <h2 className='anchor-text'>Choose your anchor:</h2>
             <div className='choice-holder'>
-
                 <div onClick={handleClick}  className='choice'><img alt='breathing guy' id='0' className='choice-img' src={guyPic}></img></div>
                 <div onClick={handleClick}  className='choice'><img alt='levitating yogis' id='1' className='choice-img' src={medPic}></img></div>
                 <div onClick={handleClick}  className='choice'><img alt='seagull flying' id='2' className='choice-img' src={seagullPic}></img></div>
                 <div onClick={handleClick} className='choice'><img alt='fish jumping' id='3' className='choice-img' src={fishPic}></img></div>
                 <div onClick={handleClick} className='choice'><img alt='sun growing' id='4' className='choice-img' src={sunPic}></img></div>
                 <div onClick={handleClick} className='choice'><img alt='circles shifting' id='5' className='choice-img' src={circlePic}></img></div>
-                {/* <div onClick={handleClick} className='choice'><img id='5' className='choice-img' src={swingPic}></img></div>
-                <div onClick={handleClick} className='choice'><img id='6' className='choice-img' src={heartPic}></img></div> */}
- 
             </div>
             
         </div>

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Player, Controls } from '@lottiefiles/react-lottie-player'
 import { useRef } from 'react'
 import animationJSON from '../lotties/pales_circles.json'
-import BreathText from './BreathText';
 import './Circle.css'
 import ControlButtons from '../ControlButtons';
 
